@@ -1,12 +1,14 @@
 #summary exceptions4c, An exception handling framework for C.
 
+<img src='http://exceptions4c.googlecode.com/svn/trunk/etc/sheep_064.png' width='64' height='64' alt='exceptions4c' />
+
 = Introduction =
 
 Bring the power of exceptions to your C applications with this tiny, portable exception handling framework for C.
 
 This library provides you a simple set of keywords (macros, actually) which map the semantics of exception handling you're probably already used to:
 
-    * try
-    * catch
-    * finally
-    * throw
+    * `try`
+    * `catch`
+    * `finally`
+    * `throw`
