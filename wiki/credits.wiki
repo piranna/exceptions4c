@@ -1,0 +1,21 @@
+#summary Credits and other implementations
+
+This little library has been inspired by these previous works:
+
+ * *Exceptions in C*
+ By Laurent Deniau
+  http://ldeniau.home.cern.ch/ldeniau/html/exception/exception.html
+
+ * *Implementing Exceptions in C Programming language*
+ By Adomas Paltanavicius
+  http://adomas.org/excc/
+
+Some other different implementations of exception handling systems in C are:
+
+ * *Exceptions in C*
+ By Andrew Snowden
+  http://www-users.math.umd.edu/~asnowden/c-except.html
+
+ * *Handling exceptions in C code*
+ SWIG (Simplified Wrapper and Interface Generator)
+  http://www.swig.org/Doc1.1/HTML/Exceptions.html#n2
