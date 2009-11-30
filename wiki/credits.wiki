@@ -19,3 +19,7 @@ Some other different implementations of exception handling systems in C are:
  * *Handling exceptions in C code*
  SWIG (Simplified Wrapper and Interface Generator)
   http://www.swig.org/Doc1.1/HTML/Exceptions.html#n2
+
+ * *Exception Handling in C without C++*
+ By Tom Schotland and Peter Petersen
+  http://www.on-time.com/ddj0011.htm
