@@ -49,9 +49,20 @@ try{
 
 As you see, you only need to pass the name of the exception to a `catch` block. The global variable `exception` holds the current exception. You can get its `name`, `description` and `super` _type_. This variable is not `const`, but you should treat it as _read-only_. Also you can _access_ it anywhere you like, but it will only have meaningful values inside `catch` or `finally` blocks.
 
+In addition, signals such as `SIGHUP`, `SIGFPE` and `SIGSEGV` can be handled in an _exceptional_ way. Forget about scary segmentation faults, all you need is to catch `BadPointerException`:
+
+{{{
+int * pointer = NULL;
+try{
+    int oops = *pointer;
+}catch(BadPointerException){
+    printf("No problem ;-)");
+}
+}}}
+
 Of course, all these exceptions are _unchecked_, so you rather wrap your application's main loop with a _catch-all_ block if you don't want your application exiting, ahem, _gracefully_ when an exception pops out `main`.
 
-...and that's pretty much it. You might want to play around with *exceptions4c* before actually using it in your projects, but you will realize very soon it's really easy to work with. You just need to drop the two files `except4c.h` and `except4c.c` in your project and remember to include the header file from your code.
+...and that's pretty much it. You might want to play around with *exceptions4c* before actually using it in your projects, but you will realize very soon it's really easy to work with. In order to use exceptions4c you just need to drop the two files (`except4c.h` and `except4c.c`) in your project and remember to include the header file from your code.
 
 Thank you and happy coding!
 
