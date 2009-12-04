@@ -1,0 +1,57 @@
+#summary Handling signals sent to the process.
+
+= Introduction =
+
+*exceptions4c* can make your life easier by converting signals to exceptions. Most of these signals will crash your program as soon as they are raised. Now you can `catch` signals and avoid core dumps.
+
+For example, you could wrap a _suspicious_ or _dangerous_ part of the code with `try` blocks and `catch` segmentation faults or divisions by zero. Then you can clean up and keep working:
+
+{{{
+int * pointer = NULL;
+try{
+    int oops = *pointer;
+}catch(BadPointerException){
+    printf("No problem ;-)");
+}finally{
+    /* clean up... */
+}
+}}}
+
+= Usage =
+
+In order to perform the conversion, *exceptions4c* maps signals to exceptions.
+
+The simpler way to get this working is by calling function:
+
+{{{
+extern void initializeExceptionHandling(bool handleSignals);
+}}}
+
+`initializeExceptionHandling` will set up for you the default handlers for the available signals in the platform if you pass `handleSignals=true`.
+
+If you need to be more specific about which signals get converted to exceptions, you can define an array of `SignalMapping` this way:
+
+{{{
+SignalMapping defaultSignalMapping[] = {
+    SIGNAL_MAPPING(SIGABRT, YourVeryOwnException),
+    /* ... */
+}
+}}}
+
+...and then pass it to the function:
+
+{{{
+extern void setSignalHandlers(SignalMapping * mapping, int mappings);
+}}}
+
+This way, only the specified signals will be handled as exceptions, and they will be converted to the specified exceptions.
+
+= Signals you can handle =
+
+These are some of the signals you can handle:
+ * *SIGILL* (for example, when you try to divide by zero)
+ * *SIGSEGV* (when you make an invalid memory reference, or segmentation fault)
+ * *SIGINT* (when a user wishes to interrupt the process, Control-c)
+ * *SIGTERM* (the signal sent to a process to request its termination)
+
+Obviously, you should conform to the semantics of each signal. Remember to read the specification.
