@@ -1,4 +1,4 @@
-#summary exceptions4c, An exception handling framework for C.
+#summary *exceptions4c*, An exception handling framework for C.
 
 = Introduction =
 
