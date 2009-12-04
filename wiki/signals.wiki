@@ -49,7 +49,7 @@ This way, only the specified signals will be handled as exceptions, and they wil
 = Signals you can handle =
 
 These are some of the signals you can handle:
- * *SIGILL* (for example, when you try to divide by zero)
+ * *SIGFPE* (for example, when you try to divide by zero)
  * *SIGSEGV* (when you make an invalid memory reference, or segmentation fault)
  * *SIGINT* (when a user wishes to interrupt the process, Control-c)
  * *SIGTERM* (the signal sent to a process to request its termination)
