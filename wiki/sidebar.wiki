@@ -10,4 +10,4 @@
 
 ----
 
-<img src='http://exceptions4c.googlecode.com/svn/trunk/etc/sheep_064.png' width='64' height='64' alt='exceptions4c' />
+<img src='http://exceptions4c.googlecode.com/svn/trunk/etc/sheep_032.png' width='32' height='32' alt='exceptions4c' />
