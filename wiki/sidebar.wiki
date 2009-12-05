@@ -1,7 +1,9 @@
 #summary Wiki sidebar
 
 [home]
+
 [signals]
+
 [credits]
 
 ----
