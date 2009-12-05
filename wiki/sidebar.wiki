@@ -2,11 +2,11 @@
 
 =exceptions4c=
 
-[home]
+----
 
-[signals]
-
-[credits]
+ * [home]
+ * [signals]
+ * [credits]
 
 ----
 
