@@ -35,3 +35,7 @@ Recovering from errors:
  * Drop the `except4c.h` and `except4c.c` in your project.
  * *`#include`* `"except4c.h"`
  * call `initializeExceptionHandling`
+
+----
+
+<img src='http://exceptions4c.googlecode.com/svn/trunk/etc/sheep_064.png' width='64' height='64' alt='exceptions4c' />
