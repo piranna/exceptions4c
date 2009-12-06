@@ -4,9 +4,10 @@
 
 ----
 
- * [home]
- * [signals]
- * [credits]
+ * [home Home]
+ * [nutshell e4c in a nutshell]
+ * [signals Handling signals]
+ * [credits Credits]
 
 ----
 
