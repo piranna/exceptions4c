@@ -1,0 +1,29 @@
+#summary Exception hierarchies
+
+= Exception hierarchies =
+
+Exceptions can be organized into _pseudo-hierarchies_, so you can catch many specialized exceptions by catching a generic one.
+
+{{{
+/*
+                 Name                 Description                            Super-exception
+*/
+DEFINE_EXCEPTION(WhateverException,   "Something went wrong",                RuntimeException);
+DEFINE_EXCEPTION(AnimalException,     "An unknown animal ate your keyboard", RuntimeException);
+DEFINE_EXCEPTION(SheepException,      "A sheep is laughing at you",          AnimalException);
+DEFINE_EXCEPTION(WhiteSheepException, "A white sheep said: Baa!",            SheepException);
+DEFINE_EXCEPTION(BlackSheepException, "A black sheep said: Boo!",            SheepException);
+
+try{
+    if(foo == bar){
+        throw(WhiteSheepException);
+    }else{
+        throw(BlackSheepException);
+    }
+}catch(SheepException){
+    /* You can catch any kind of SheepException */
+    printf("There are evil sheeps in here... (%s)", exception.name);
+}catch(WhateverException){
+    printf("We know exactly what happened: %s.", exception.description);
+}
+}}}
