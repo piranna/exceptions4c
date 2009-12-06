@@ -20,15 +20,15 @@ Because it's way more convenient to treat errors as exceptions, rather than chec
 
 Disposing resources:
 
-<img src='http://exceptions4c.googlecode.com/svn/trunk/etc/example1.gif' width='288' height='96' alt='try-finally' />
+<img src='http://exceptions4c.googlecode.com/svn/trunk/etc/example1_small.png' width='288' height='96' alt='try-finally' />
 
 Ensuring preconditions:
 
-<img src='http://exceptions4c.googlecode.com/svn/trunk/etc/example2.gif' width='288' height='96' alt='throw' />
+<img src='http://exceptions4c.googlecode.com/svn/trunk/etc/example2_small.png' width='288' height='96' alt='throw' />
 
 Recovering from errors:
 
-<img src='http://exceptions4c.googlecode.com/svn/trunk/etc/example3.gif' width='288' height='96' alt='catch' />
+<img src='http://exceptions4c.googlecode.com/svn/trunk/etc/example3_small.png' width='288' height='96' alt='catch' />
 
 = How =
 
