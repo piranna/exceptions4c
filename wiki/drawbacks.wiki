@@ -3,3 +3,7 @@
 = Drawbacks =
 
 Exceptions are _unchecked_, so you should wrap your application's main loop with a _catch-all_ block if you don't want your application exiting when an exception pops out `main`.
+
+----
+
+<img src='http://exceptions4c.googlecode.com/svn/trunk/etc/sheep_064.png' width='64' height='64' alt='exceptions4c' />
