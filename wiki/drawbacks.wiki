@@ -1,0 +1,5 @@
+#summary Drawbacks and other notes
+
+= Drawbacks =
+
+Exceptions are _unchecked_, so you should wrap your application's main loop with a _catch-all_ block if you don't want your application exiting when an exception pops out `main`.
