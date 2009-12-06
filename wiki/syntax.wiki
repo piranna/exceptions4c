@@ -1,0 +1,101 @@
+#summary Syntax
+
+= Exceptions =
+
+Exceptions are objects with a *name*, a *description* and a *supertype*.
+
+They are defined through the macro `DEFINE_EXCEPTION` specifying, in this order, name, description and supertype:
+{{{
+DEFINE_EXCEPTION(StackException, "Stack overflow", RuntimeException);
+DEFINE_EXCEPTION(StackOverflowException, "Stack overflow", StackException);
+DEFINE_EXCEPTION(StackUnderflowException, "Stack underflow", StackException);
+}}}
+
+Exceptions are usually defined as global `const` objects. There is a set of global predefined exceptions built into the framework, amongst others:
+
+ * `RuntimeException`
+ * `NotEnoughMemoryException`
+ * `NullPointerException`
+ * `AbortException`
+ * `ArithmeticException`
+ * `IllegalInstructionException`
+ * `BadPointerException`
+ * `TerminationException`
+ * `UserInterruptionException`
+
+`RuntimeException` is the root of the exceptions pseudo-hierarchy.
+
+= `try` =
+
+The only mandatory part of a `try` block is the `try` keyword:
+
+{{{
+try{
+    stack_push(123);
+}
+}}}
+
+= `finally` =
+
+A `try` block can be next to, at most, one `finally` block:
+{{{
+try{
+    stack_push(123);
+}finally{
+    fclose(file);
+}
+}}}
+
+= `catch` =
+
+A `catch` block must be given a kind of exceptions it is capable of handling. Inside a `catch` block, the current exception being handled can be accessed to the global name `exception`. This variable is not `const`, but you should treat it as _read-only_.
+
+{{{
+}catch(StackException){
+    printf("Last operation failed (%s).\n", exception.description);
+}
+}}}
+
+A `try` block can have as many `catch` block as desired:
+
+{{{
+try{
+    stack_push(stack, 123);
+    foo = stack_pop(stack);
+}catch(StackOverflowException){
+    /* ... */
+}catch(StackUnderflowException){
+    /* ... */
+}
+}}}
+
+= `throw` =
+
+Exceptions can be thrown either inside or outside any `try`, `catch` and `finally` blocks.
+
+{{{
+throw(NullPointerException);
+try{
+    throw(NullPointerException);
+}catch(NullPointerException){
+    throw(NullPointerException);
+}finally{
+    throw(NullPointerException);
+}
+}}}
+
+Imported and previously defined exceptions can be thrown *anywhere*, either inside or outside any `try`, `catch` and `finally` blocks.
+
+{{{
+extern const Exception NullPointerException;
+throw(NullPointerException);
+/* ... */
+DEFINE_EXCEPTION(InvalidStackException, "This stack is invalid", StackException);
+throw(InvalidStackException);
+}}}
+
+But you can also `throw` _ad hoc_ exceptions (when you don't need to export the exception):
+
+{{{
+throw( newException("InvalidStackException", "This stack is invalid", &StackException) );
+}}}
