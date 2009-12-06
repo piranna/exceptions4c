@@ -1,0 +1,37 @@
+#summary exceptions4c in a nutshell
+#labels Featured
+
+= What =
+
+*`exceptions4c`* is an exception handling framework for C.
+
+= Why =
+
+Because it's way more convenient to treat errors as exceptions, rather than checking the status of the last operation.
+
+= When =
+
+ * *`try`*: when a block of code is aware of the possibility that some exception can be thrown within it.
+ * *`finally`*: when a block of code needs to clean things up, regardless of any exception.
+ * *`throw`*: when some part of the program finds an error that can't handle, or something really bad happens: division by zero, segmentation fault, etc...
+ * *`catch`*: ...the flow of the program jumps to a block of code that is able to handle the error.
+
+= Where =
+
+Disposing resources:
+
+<img src='http://exceptions4c.googlecode.com/svn/trunk/etc/example1.gif' width='288' height='96' alt='try-finally' />
+
+Ensuring preconditions:
+
+<img src='http://exceptions4c.googlecode.com/svn/trunk/etc/example2.gif' width='288' height='96' alt='throw' />
+
+Recovering from errors:
+
+<img src='http://exceptions4c.googlecode.com/svn/trunk/etc/example3.gif' width='288' height='96' alt='catch' />
+
+= How =
+
+ * Drop the `except4c.h` and `except4c.c` in your project.
+ * *`#include`* `"except4c.h"`
+ * call `initializeExceptionHandling`
