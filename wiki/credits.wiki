@@ -23,3 +23,7 @@ Some other different implementations of exception handling systems in C are:
  * *Exception Handling in C without C++*
  By Tom Schotland and Peter Petersen
   http://www.on-time.com/ddj0011.htm
+
+----
+
+<img src='http://exceptions4c.googlecode.com/svn/trunk/etc/sheep_064.png' width='64' height='64' alt='exceptions4c' />
