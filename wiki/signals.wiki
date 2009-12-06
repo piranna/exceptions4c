@@ -55,3 +55,7 @@ These are some of the signals you can handle:
  * *SIGTERM* (the signal sent to a process to request its termination)
 
 Obviously, you should conform to the semantics of each signal. Remember to read the specification.
+
+----
+
+<img src='http://exceptions4c.googlecode.com/svn/trunk/etc/sheep_064.png' width='64' height='64' alt='exceptions4c' />
