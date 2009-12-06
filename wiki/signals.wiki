@@ -1,4 +1,4 @@
-#summary Handling signals sent to the process.
+#summary Handling signals sent to the process
 
 = Introduction =
 
