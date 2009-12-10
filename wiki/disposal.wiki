@@ -1,6 +1,6 @@
 #summary Acquiring and disposing resources
 
-= Using Resources =
+= Making Use of Resources =
 
 When using resources, sometimes the part of the code that acquires the resource is far away in _space_ (in source code) or _time_ (in runtime) from the part that disposes it. But very often, resources are consecutively:
  # *acquired*
@@ -11,23 +11,59 @@ In such times, manual acquisition (before) and disposal (after), before and afte
 
 This pattern goes like this:
 
- # trying to acquire the resource
+ # try to *acquire* the resource
  # failed? then take the appropriate actions
- # succeeded? then use the resource
- # when done, dispose the resource
+ # succeeded? then *use* the resource
+ # when done, *dispose* the resource
 
-= Dispose pattern =
+Note that the resource must be disposed, even if the code that uses the resource throws an exception.
 
-Add your content here.
+When doing all this things _manually_, care must be taken to:
+ * remember to dispose the resource in a `finally` block.
+ * dispose the resource only if the acquisition succeeded.
 
+= `Using` Resources =
 
-= Details =
+`exceptions4c` brings you an elegant solution: the acquisition and disposal can be carried out implicitly by using the keyword `using`.
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+The following rules apply:
+ * The acquisition is considered successful if no exception was thrown during the acquisition of the resource.
+ * The resource is guaranteed to be disposed if (and only if) the acquisition succeeded, disregarding whichever exception was thrown after the acquisition.
 
+This syntax lets you write terse sentences, for example:
+
+{{{
+using(Foo, foo, ("bar", 123)) printf("foo: '%s', %d\n", foo.text, foo.number);
+}}}
+
+Which is equivalent to:
+
+{{{
+acquireFoo("bar", 123);
+try{
+    printf("foo: '%s', %d\n", foo.text, foo.number);
+}finally{
+    disposeFoo(foo);
+}
+}}}
+
+Resources are expected to have corresponding functions (or macros) `acquireX` and `disposeX`.
+
+In addition, you can also handle errors by adding `catch` or `finally` blocks to a `using` block:
+
+{{{
+using(Foo, foo, ("bar", 123)){
+    printf("foo: '%s', %d\n", foo.text, foo.number);
+}catch(FooNotAcquiredException){
+    /* ... */
+}catch(FooFailedException){
+    /* ... */
+}finally{
+    /* ... */
+}
+}}}
+
+Just remember there's no need to dispose the resource in the `finally` block.
 ----
 
 <img src='http://exceptions4c.googlecode.com/svn/trunk/etc/sheep_064.png' width='64' height='64' alt='exceptions4c' />
