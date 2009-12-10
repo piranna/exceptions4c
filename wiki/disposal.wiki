@@ -141,7 +141,7 @@ However, if you don't have that luxury, you will probably need to reuse existing
 
 Let's take a use case and see how can we work around it.
 
-== Memory Resource ==
+== Memory ==
 
 Heap allocated memory is just one kind of resource we could need to use in this way:
  * Memory is acquired by calling `malloc`
