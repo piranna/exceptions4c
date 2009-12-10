@@ -1,0 +1,33 @@
+#summary Acquiring and disposing resources
+
+= Using Resources =
+
+When using resources, sometimes the part of the code that acquires the resource is far away in _space_ (in source code) or _time_ (in runtime) from the part that disposes it. But very often, resources are consecutively:
+ # *acquired*
+ # *used*
+ # and then *disposed*, in a row
+
+In such times, manual acquisition (before) and disposal (after), before and after the real deal (actually _making use_ of the resource), feels like a cumbersome and tedious bookkeeping task.
+
+This pattern goes like this:
+
+ # trying to acquire the resource
+ # failed? then take the appropriate actions
+ # succeeded? then use the resource
+ # when done, dispose the resource
+
+= Dispose pattern =
+
+Add your content here.
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
+
+----
+
+<img src='http://exceptions4c.googlecode.com/svn/trunk/etc/sheep_064.png' width='64' height='64' alt='exceptions4c' />
