@@ -5,9 +5,9 @@
 Resources are objects we are required to *acquire* and *dispose* in order to _use_ them within our program. For example, a `FILE` needs to be `fopen`'ed and `fclose`'d.
 
 When using resources, sometimes the part of the code that acquires the resource is far away in _space_ (in source code) or _time_ (in runtime) from the part that disposes it. But very often, resources are consecutively:
- # *acquired*
- # *used*
- # and then *disposed*, in a row
+ * *acquired*
+ * *used*
+ * and then *disposed*, in a row
 
 In such times, manual acquisition (before) and disposal (after), before and after the real deal (actually _making use_ of the resource), feels like a cumbersome and tedious bookkeeping task.
 
