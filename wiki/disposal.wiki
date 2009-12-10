@@ -1,6 +1,8 @@
 #summary Acquiring and disposing resources
 
-= Making Use of Resources =
+= Handling Resources =
+
+Resources are objects we are required to *acquire* and *dispose* in order to _use_ them within our program. For example, a `FILE` needs to be `fopen`'ed and `fclose`'d.
 
 When using resources, sometimes the part of the code that acquires the resource is far away in _space_ (in source code) or _time_ (in runtime) from the part that disposes it. But very often, resources are consecutively:
  # *acquired*
@@ -22,13 +24,15 @@ When doing all this things _manually_, care must be taken to:
  * remember to dispose the resource in a `finally` block.
  * dispose the resource only if the acquisition succeeded.
 
-= `Using` Resources =
+`exceptions4c` brings you an elegant solution: the acquisition and disposal can be carried out implicitly by using any of these keywords:
+ * *`using`*
+ * *`with ... use`*
 
-`exceptions4c` brings you an elegant solution: the acquisition and disposal can be carried out implicitly by using the keyword `using`.
-
-The following rules apply:
+Either way, the following rules apply:
  * The acquisition is considered successful if no exception was thrown during the acquisition of the resource.
  * The resource is guaranteed to be disposed if (and only if) the acquisition succeeded, disregarding whichever exception was thrown after the acquisition.
+
+= `using` Resources =
 
 This syntax lets you write terse sentences, for example:
 
@@ -49,11 +53,42 @@ try{
 
 Resources are expected to have corresponding functions (or macros) `acquireX` and `disposeX`.
 
-In addition, you can also handle errors by adding `catch` or `finally` blocks to a `using` block:
+The keyword `using` receives two parameters:
+ # The _type_ of the resource and will be used to compound the name of such functions.
+ # The name of the _variable_ holding the resource. It can be any type, as long as it is consistent with the functions.
+
+The function `acquireX` must return a value assignable to the _variable_, and the function `disposeX` must accept the _variable_.
+
+= `with` Resources =
+
+This alternative syntax allows you to explicitly acquire the resource:
 
 {{{
+with(Foo, foo) getSomeFoo("bar", 123) use doSomething(foo);
+}}}
+
+In this case, the only function (or macro) expected to exist is `acquireX`.
+
+There's an implicit `foo = ` right before the acquisition, and an implicit semicolon right after it:
+
+{{{
+foo = getSomeFoo("bar", 123);
+}}}
+
+Acquisition does not need to be a one-liner; you can write several statements but there's no need to write them between curly braces.
+
+There's an implicit scope being opened by the keyword `using` and then closed by the keyword `use`. This way you will get a syntax error from the compiler if you write `with` without `use`.
+
+This explicit way of acquiring resources can come in handy, but nevertheless the preferred way of managing resource is by means of the simpler, cleaner keyword `using`.
+
+= Handling Errors =
+
+Errors regarding any of the acquisition, use or disposal of the resource can be handled right away, by adding `catch` or `finally` blocks to either a `using` or `with` block:
+
+{{{
+
 using(Foo, foo, ("bar", 123)){
-    printf("foo: '%s', %d\n", foo.text, foo.number);
+    doSomething(foo);
 }catch(FooNotAcquiredException){
     /* ... */
 }catch(FooFailedException){
@@ -61,9 +96,120 @@ using(Foo, foo, ("bar", 123)){
 }finally{
     /* ... */
 }
+
+with(Foo, foo) getSomeFoo("bar", 123) use{
+    doSomething(foo);
+}catch(FooNotAcquiredException){
+    /* ... */
+}catch(FooFailedException){
+    /* ... */
+}finally{
+    /* ... */
+}
+
 }}}
 
 Just remember there's no need to dispose the resource in the `finally` block.
+
+= Customizing `using` Syntax =
+
+If you are going to handle a specific type of resources many times, it can be handy to define simple macros, such as:
+
+{{{
+# define usingFoo(_var_, _arg1_, _arg2) using(Foo, _var_, (_arg1_, _arg2) )
+
+/* this way, you can write: */
+
+usingFoo(x, "hello", 31416) doSomething(x);
+
+/* instead of: */
+
+using(Foo, x, ("hello", 31416) ) doSomething(x);
+
+}}}
+
+You can save some parentheses and it looks cleaners.
+
+= Reusing Legacy Code =
+
+If you create your own resources and related functions, you can smooth the path by naming functions `acquireX` and `disposeX`, and by creating a nice customized macro like `usingX`.
+
+However, if you don't have that luxury, you will probably need to reuse existing code which does not fullfill the requirements necessary to handle resources in this way, for example:
+ * There's no `acquireX` function
+ * There's no `disposeX` function
+ * The acquisition does not throw any exception but returns NULL or something else.
+
+Let's take a use case and see how can we work around it.
+
+== Memory Resource ==
+
+Heap allocated memory is just one kind of resource we could need to use in this way:
+ * Memory is acquired by calling `malloc`
+ * Memory is disposed by calling `free`
+ * Acquisition fails by returning NULL (instead of throwing an exception)
+
+We could start by defining the macros
+
+{{{
+# define acquireMemory malloc
+# define disposeMemory free
+}}}
+
+Next, we realize we cannot use the keyword `using`:
+
+{{{
+void * buffer;
+using( Memory, buffer, (1024) ){
+    memset(buffer, 0, 1024);
+    /* what if malloc failed?? */
+}
+}}}
+
+Instead, we need to throw an exception if `malloc` returned NULL. We can do this by using the alternative syntax (`with ... use`):
+
+{{{
+with( Memory, buffer) malloc(1024); if(buffer == NULL) throw(NotEnoughMemoryException) use{
+    /* if we got here, malloc didn't fail */
+    memset(buffer, 0, 1024);
+}
+}}}
+
+Since this will be a recurring pattern, there's a specific keyword to help you out: *`usingIf`*. It takes the same parameters than `using` plus a condition and an exception to be thrown if condition yields false.
+
+The previous solution can be rewritten as:
+
+{{{
+usingIf(Memory, buffer, (1024), buffer != NULL, NotEnoughMemoryException){
+    memset(buffer, 0, 1024);
+}
+}}}
+
+Finally, we could create a customized macro:
+
+{{{
+# define usingMemory(_var_, _bytes_) usingIf(Memory, _var_, (_bytes_), buffer != NULL, NotEnoughMemoryException)
+
+/* this way we can write: */
+
+usingMemory(buffer, 1024){
+    memset(buffer, 0, 1024);
+}
+}}}
+
+Of course, we can use this with in conjunction with `catch` or `finally` blocks:
+
+{{{
+usingMemory(buffer, 1024){
+    memset(buffer, 0, 1024);
+}catch(NotEnoughMemoryException){
+    /* ... */
+}finally{
+    /* ... */
+}
+}}}
+
+There is already a small set of macros built into the framework which handle standard resources (memory, files) according to this philosophy.
+
 ----
 
 <img src='http://exceptions4c.googlecode.com/svn/trunk/etc/sheep_064.png' width='64' height='64' alt='exceptions4c' />
