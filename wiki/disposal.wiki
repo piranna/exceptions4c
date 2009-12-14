@@ -1,5 +1,9 @@
 #summary Acquiring and disposing resources
 
+This feature will be available soon...
+
+<wiki:comment>
+
 = Handling Resources =
 
 Resources are objects we are required to *acquire* and *dispose* in order to _use_ them within our program. For example, a `FILE` needs to be `fopen`'ed and `fclose`'d.
@@ -206,6 +210,8 @@ usingMemory(buffer, 1024){
 }}}
 
 There is already a small set of macros built into the framework which handle standard resources (memory, files) according to this philosophy.
+
+</wiki:comment>
 
 ----
 
