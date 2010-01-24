@@ -1,9 +1,5 @@
 #summary Acquiring and disposing resources
 
-This feature will be available soon...
-
-<wiki:comment>
-
 = Handling Resources =
 
 Resources are objects we are required to *acquire* and *dispose* in order to _use_ them within our program. For example, a `FILE` needs to be `fopen`'ed and `fclose`'d.
@@ -26,61 +22,66 @@ When doing all this things _manually_, care must be taken to:
  * dispose the resource only if the acquisition succeeded.
 
 `exceptions4c` brings you an elegant solution: the acquisition and disposal can be carried out implicitly by using any of these keywords:
- * *`using`*
  * *`with ... use`*
+ * *`using`*
 
 Either way, the following rules apply:
- * The acquisition is considered successful if no exception was thrown during the acquisition of the resource.
- * The resource is guaranteed to be disposed if (and only if) the acquisition succeeded, disregarding whichever exception was thrown after the acquisition.
+ * The acquisition is considered successful if no exception was thrown *during* the acquisition of the resource.
+ * The resource is *guaranteed to be disposed* if (and only if) the acquisition succeeded, disregarding whichever exception was thrown *after* the acquisition.
 
-= `using` Resources =
+= Syntax `with... use` =
 
-This syntax lets you write terse sentences, for example:
-
-{{{
-using(Foo, foo, ("bar", 123)) printf("foo: '%s', %d\n", foo.text, foo.number);
-}}}
-
-Which is equivalent to:
+This syntax lets you implicitly dispose resources. It has a `with` block which takes care of the acquisition and a `use` block which does anything with the resource. The disposal function will be automatically called according to the _Dispose Pattern_ semantics:
 
 {{{
-acquireFoo("bar", 123);
-try{
-    printf("foo: '%s', %d\n", foo.text, foo.number);
-}finally{
-    disposeFoo(foo);
+with(foo, disposeFoo){
+    getSomeFoo("bar", 123);
+}use{
+    doSomething(foo);
 }
 }}}
 
-Resources are expected to have corresponding functions (or macros) `acquireX` and `disposeX`.
+`with` needs two arguments:
+ # The name of the variable representing the resource
+ # The name of the function or macro which will dispose the resource when finished
 
-The keyword `using` receives two parameters:
- # The _type_ of the resource and will be used to compound the name of such functions.
- # The name of the _variable_ holding the resource. It can be any type, as long as it is consistent with the functions.
+The disposal function (or macro) must accept three parameters:
+ # A parameter receiving the _resource_
+ # A boolean parameter representing the failure of the `use` block
+ # A parameter receiving the _exception context_ to access further information (such as the exception thrown)
 
-The function `acquireX` must return a value assignable to the _variable_, and the function `disposeX` must accept the _variable_.
-
-= `with` Resources =
-
-This alternative syntax allows you to explicitly acquire the resource:
-
-{{{
-with(Foo, foo) getSomeFoo("bar", 123) use doSomething(foo);
-}}}
-
-In this case, the only function (or macro) expected to exist is `acquireX`.
-
-There's an implicit `foo = ` right before the acquisition, and an implicit semicolon right after it:
+When the disposal function does not need to be aware of such information, you can define a macro which filters certain parameters to the actual function, and use that macro as the `disposal function`. For example:
 
 {{{
-foo = getSomeFoo("bar", 123);
+# define disposeFile(file, failed, context) fclose(file)
 }}}
 
-Acquisition does not need to be a one-liner; you can write several statements but there's no need to write them between curly braces.
+Neither `with` nor `use` blocks need to be written between curly braces. In fact, the whole lot can be a single line.
 
-There's an implicit scope being opened by the keyword `using` and then closed by the keyword `use`. This way you will get a syntax error from the compiler if you write `with` without `use`.
+{{{
+with(foo, disposeFoo) getSomeFoo("bar", 123); use doSomething(foo);
+}}}
 
-This explicit way of acquiring resources can come in handy, but nevertheless the preferred way of managing resource is by means of the simpler, cleaner keyword `using`.
+= Syntax `using` =
+
+This alternative syntax allows you to write terser sentences, leaving both acquisition and disposal out:
+
+{{{
+using(Foo, foo, ("bar", 123)){
+    printf("foo: '%s', %d\n", foo.text, foo.number);
+}
+}}}
+
+`using` needs three arguments:
+ # The name of the type of resource
+ # The name of the variable representing the resource
+ # The list of arguments to be passed to the acquisition function or macro
+
+The name of the acquisition and disposal functions will be made up by appending the name of the type of resource to `acquire` and `dispose`. For example, if the type of resource is `Foo`, then the next functions or macros will be implicitly called:
+ * `acquireFoo`
+ * `disposeFoo`
+
+The acquisition function must accept the specified list of _parameters_, as well as return a value assignable to the _variable_. The function `disposeX` must accept the same parameters as in the previous syntax (_resource, failed, context_).
 
 = Handling Errors =
 
@@ -112,9 +113,9 @@ with(Foo, foo) getSomeFoo("bar", 123) use{
 
 Just remember there's no need to dispose the resource in the `finally` block.
 
-= Customizing `using` Syntax =
+= Customized `using` Macros =
 
-If you are going to handle a specific type of resources many times, it can be handy to define simple macros, such as:
+If you are going to handle a specific type of resources very often, it can be handy to define simple macros, such as:
 
 {{{
 # define usingFoo(_var_, _arg1_, _arg2) using(Foo, _var_, (_arg1_, _arg2) )
@@ -129,11 +130,11 @@ using(Foo, x, ("hello", 31416) ) doSomething(x);
 
 }}}
 
-You can save some parentheses and it looks cleaners.
+You can save some parentheses and it looks cleaner.
 
 = Reusing Legacy Code =
 
-If you create your own resources and related functions, you can smooth the path by naming functions `acquireX` and `disposeX`, and by creating a nice customized macro like `usingX`.
+If you create your own resources and related functions, you can smooth the path by naming functions `acquireX` and `disposeX`.
 
 However, if you don't have that luxury, you will probably need to reuse existing code which does not fullfill the requirements necessary to handle resources in this way, for example:
  * There's no `acquireX` function
@@ -153,7 +154,7 @@ We could start by defining the macros
 
 {{{
 # define acquireMemory malloc
-# define disposeMemory free
+# define disposeMemory(buffer, failed, context) free(buffer)
 }}}
 
 Next, we realize we cannot use the keyword `using`:
@@ -169,29 +170,28 @@ using( Memory, buffer, (1024) ){
 Instead, we need to throw an exception if `malloc` returned NULL. We can do this by using the alternative syntax (`with ... use`):
 
 {{{
-with( Memory, buffer) malloc(1024); if(buffer == NULL) throw(NotEnoughMemoryException) use{
+with(buffer, disposeMemory){
+    buffer = acquireMemory(1024);
+    if(buffer == NULL) throw(NotEnoughMemoryException);
+}use{
     /* if we got here, malloc didn't fail */
     memset(buffer, 0, 1024);
 }
 }}}
 
-Since this will be a recurring pattern, there's a specific keyword to help you out: *`usingIf`*. It takes the same parameters than `using` plus a condition and an exception to be thrown if condition yields false.
-
-The previous solution can be rewritten as:
+Since this will be a recurring pattern, we could create a customized macro:
 
 {{{
-usingIf(Memory, buffer, (1024), buffer != NULL, NotEnoughMemoryException){
-    memset(buffer, 0, 1024);
-}
+# define usingMemory(_var_, _bytes_) \
+    with(_var_, (_bytes_) ){ \
+        _var_ = acquireMemory(1024); \
+        if(_var_ == NULL) throw(NotEnoughMemoryException); \
+    }use
 }}}
 
-Finally, we could create a customized macro:
+This way we could write:
 
 {{{
-# define usingMemory(_var_, _bytes_) usingIf(Memory, _var_, (_bytes_), buffer != NULL, NotEnoughMemoryException)
-
-/* this way we can write: */
-
 usingMemory(buffer, 1024){
     memset(buffer, 0, 1024);
 }
@@ -209,9 +209,7 @@ usingMemory(buffer, 1024){
 }
 }}}
 
-There is already a small set of macros built into the framework which handle standard resources (memory, files) according to this philosophy.
-
-</wiki:comment>
+There is already a small set of macros built into the framework which handle standard resources (memory, files) according to this style.
 
 ----
 
