@@ -24,6 +24,11 @@ Some other different implementations of exception handling systems in C are:
  By Tom Schotland and Peter Petersen
   http://www.on-time.com/ddj0011.htm
 
+
+I would also like to thank *José Antonio Gimeno* for his continued support and advice, and *Miguel Frutos* for his suggestions on the Dispose Pattern.
+
+The design of the "sheep logo" <img src='http://exceptions4c.googlecode.com/svn/trunk/etc/sheep_016.png' width='16' height='16' alt='exceptions4c' /> was based on an original idea of *Iris Zaldívar*.
+
 ----
 
 <img src='http://exceptions4c.googlecode.com/svn/trunk/etc/sheep_064.png' width='64' height='64' alt='exceptions4c' />
