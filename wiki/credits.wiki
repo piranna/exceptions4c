@@ -44,4 +44,4 @@ The design of the "sheep logo" <img src='http://exceptions4c.googlecode.com/svn/
 
 ----
 
-<img src='http://exceptions4c.googlecode.com/svn/trunk/etc/sheep_064.png' width='64' height='64' alt='exceptions4c' />
+[http://exceptions4c.googlecode.com/svn/trunk/etc/exceptions4c_128.png]
