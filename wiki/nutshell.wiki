@@ -20,22 +20,22 @@ Because it's way more convenient to treat errors as exceptions, rather than chec
 
 Disposing resources:
 
- <img src='http://exceptions4c.googlecode.com/svn/trunk/etc/example1_small.png' width='288' height='96' alt='try-finally' />
+ [http://exceptions4c.googlecode.com/svn/trunk/etc/example1_small.png]
 
 Ensuring preconditions:
 
- <img src='http://exceptions4c.googlecode.com/svn/trunk/etc/example2_small.png' width='288' height='96' alt='throw' />
+ [http://exceptions4c.googlecode.com/svn/trunk/etc/example2_small.png]
 
 Recovering from errors:
 
- <img src='http://exceptions4c.googlecode.com/svn/trunk/etc/example3_small.png' width='288' height='96' alt='catch' />
+ [http://exceptions4c.googlecode.com/svn/trunk/etc/example3_small.png]
 
 = How =
 
  * Drop the `except4c.h` and `except4c.c` in your project.
  * *`#include`* `"except4c.h"`
- * call `initializeExceptionHandling`
+ * Call `beginExceptionContext` and `endExceptionContext`
 
 ----
 
-<img src='http://exceptions4c.googlecode.com/svn/trunk/etc/sheep_064.png' width='64' height='64' alt='exceptions4c' />
+[http://exceptions4c.googlecode.com/svn/trunk/etc/sheep_064.png]
