@@ -8,4 +8,4 @@ The system provides a mechanism for implicit initialization and finalization of 
 
 ----
 
-[http://exceptions4c.googlecode.com/svn/trunk/etc/sheep_064.png]
+[http://exceptions4c.googlecode.com/svn/trunk/etc/exceptions4c_128.png]
