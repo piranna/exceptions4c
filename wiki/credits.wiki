@@ -1,5 +1,7 @@
 #summary Credits and other implementations
 
+=Previous Works=
+
 This little library has been inspired by these previous works:
 
  * *Exceptions in C*
@@ -9,6 +11,8 @@ This little library has been inspired by these previous works:
  * *Implementing Exceptions in C Programming language*
  By Adomas Paltanavicius
   http://adomas.org/excc/
+
+=Other implementations=
 
 Some other different implementations of exception handling systems in C are:
 
@@ -24,6 +28,15 @@ Some other different implementations of exception handling systems in C are:
  By Tom Schotland and Peter Petersen
   http://www.on-time.com/ddj0011.htm
 
+ * *Trycatch library*
+ By Michael Stickel and Dirk Jagdmann
+  http://llg.cubic.org/trycatch/
+
+ * *XXL*
+ By Matt Messier and John Viega
+  http://zork.org/xxl/
+
+=Credits=
 
 I would also like to thank *José Antonio Gimeno* for his continued support and advice, and *Miguel Frutos* for his suggestions on the Dispose Pattern.
 
