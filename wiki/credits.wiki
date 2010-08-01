@@ -12,7 +12,7 @@ This little library has been inspired by these previous works:
  By Adomas Paltanavicius
   http://adomas.org/excc/
 
-=Other implementations=
+=Other Implementations=
 
 Some other different implementations of exception handling systems in C are:
 
