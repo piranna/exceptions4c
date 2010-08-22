@@ -44,20 +44,20 @@
 # ifndef _EXCEPT4C_H_
 # define _EXCEPT4C_H_
 
-# define E4C_VERSION(version)			version(1, 5, 1)
+# define E4C_VERSION(version)           version(1, 5, 1)
 
 # if !defined(E4C_THREADSAFE) && ( \
-		defined(HAVE_PTHREAD_H) \
-	||	defined(PTHREAD_H) \
-	||	defined(PTHREAD_BARRIER_SERIAL_THREAD) \
-	||	defined(PTHREAD_CANCEL_ASYNCHRONOUS) \
-	||	defined(PTHREAD_CANCEL_ENABLE) \
-	||	defined(PTHREAD_CANCEL_DEFERRED) \
-	||	defined(PTHREAD_CANCEL_DISABLE) \
-	||	defined(PTHREAD_CANCELED) \
-	||	defined(PTHREAD_CREATE_DETACHED) \
-	||	defined(PTHREAD_CREATE_JOINABLE) \
-	)
+        defined(HAVE_PTHREAD_H) \
+    ||  defined(PTHREAD_H) \
+    ||  defined(PTHREAD_BARRIER_SERIAL_THREAD) \
+    ||  defined(PTHREAD_CANCEL_ASYNCHRONOUS) \
+    ||  defined(PTHREAD_CANCEL_ENABLE) \
+    ||  defined(PTHREAD_CANCEL_DEFERRED) \
+    ||  defined(PTHREAD_CANCEL_DISABLE) \
+    ||  defined(PTHREAD_CANCELED) \
+    ||  defined(PTHREAD_CREATE_DETACHED) \
+    ||  defined(PTHREAD_CREATE_JOINABLE) \
+    )
 # error Please define E4C_THREADSAFE at compiler level to enable the \
           thread-safe version of exceptions4c.
 # endif
@@ -70,38 +70,38 @@
 # endif
 
 # ifdef __bool_true_false_are_defined
-# define e4c_bool						bool
-# define e4c_false						false
-# define e4c_true						true
+# define e4c_bool                       bool
+# define e4c_false                      false
+# define e4c_true                       true
 # else
-# define e4c_bool						unsigned char
-# define e4c_false						0
-# define e4c_true						1
+# define e4c_bool                       unsigned char
+# define e4c_false                      0
+# define e4c_true                       1
 # endif
 
 # ifdef E4C_IMPLEMENTATION
 # define E4C_READ_ONLY
 # else
-# define E4C_READ_ONLY					const
+# define E4C_READ_ONLY                  const
 # endif
 
 
-# define E4C_PASTE_TOKENS(a, b, c, d, e)				a ## b ## c ## d ## e
-# define E4C_MANGLE_NAME(_prefix_, _name_, _line_)		E4C_PASTE_TOKENS(_prefix_, _name_, _, _line_, _)
-# define E4C_RECYCLING(name)							E4C_MANGLE_NAME(_recycling_, name, __LINE__)
+# define E4C_PASTE_TOKENS(a, b, c, d, e)                a ## b ## c ## d ## e
+# define E4C_MANGLE_NAME(_prefix_, _name_, _line_)      E4C_PASTE_TOKENS(_prefix_, _name_, _, _line_, _)
+# define E4C_RECYCLING(name)                            E4C_MANGLE_NAME(_recycling_, name, __LINE__)
 
-# define E4C_V_NUMBER(major, minor, revision)			( (E4C_V_THREADSAFE * 10000000) + ( (long)major * 1000000) + ( (long)minor * 1000) + (long)revision )
+# define E4C_V_NUMBER(major, minor, revision)           ( (E4C_V_THREADSAFE * 10000000) + ( (long)major * 1000000) + ( (long)minor * 1000) + (long)revision )
 # ifdef E4C_THREADSAFE
-# define E4C_V_THREADSAFE								( (int) 1 )
-# define E4C_V_THREADSAFE_STRING						" (thread-safe)"
+# define E4C_V_THREADSAFE                               ( (int) 1 )
+# define E4C_V_THREADSAFE_STRING                        " (thread-safe)"
 # else
-# define E4C_V_THREADSAFE								( (int) 0 )
-# define E4C_V_THREADSAFE_STRING						" (thread-unsafe)"
+# define E4C_V_THREADSAFE                               ( (int) 0 )
+# define E4C_V_THREADSAFE_STRING                        " (thread-unsafe)"
 # endif
-# define E4C_V_MAJOR(major, minor, revision)			( (int)major	)
-# define E4C_V_MINOR(major, minor, revision)			( (int)minor	)
-# define E4C_V_REVISION(major, minor, revision)			( (int)revision	)
-# define E4C_V_STRING(major, minor, revision)			#major "." #minor "." #revision E4C_V_THREADSAFE_STRING
+# define E4C_V_MAJOR(major, minor, revision)            ( (int)major    )
+# define E4C_V_MINOR(major, minor, revision)            ( (int)minor    )
+# define E4C_V_REVISION(major, minor, revision)         ( (int)revision )
+# define E4C_V_STRING(major, minor, revision)           #major "." #minor "." #revision E4C_V_THREADSAFE_STRING
 
 /*
  * Next macros are undocumented on purpose, because they shouldn't be used
@@ -109,98 +109,98 @@
  */
 
 # ifdef _POSIX_C_SOURCE
-# define E4C_SETJMP(address)			sigsetjmp(address, e4c_true)
-# define E4C_LONGJMP(address)			siglongjmp(address, 1)
-# define E4C_JMP_BUF					sigjmp_buf
+# define E4C_SETJMP(address)            sigsetjmp(address, e4c_true)
+# define E4C_LONGJMP(address)           siglongjmp(address, 1)
+# define E4C_JMP_BUF                    sigjmp_buf
 # else
-# define E4C_SETJMP(address)			setjmp(address)
-# define E4C_LONGJMP(address)			longjmp(address, 1)
-# define E4C_JMP_BUF					jmp_buf
+# define E4C_SETJMP(address)            setjmp(address)
+# define E4C_LONGJMP(address)           longjmp(address, 1)
+# define E4C_JMP_BUF                    jmp_buf
 # endif
 
 # ifndef NDEBUG
-# define E4C_FILE_INFO					(const char *)__FILE__
-# define E4C_LINE_INFO					__LINE__
+# define E4C_FILE_INFO                  (const char *)__FILE__
+# define E4C_LINE_INFO                  __LINE__
 # else
-# define E4C_FILE_INFO					(const char *)NULL
-# define E4C_LINE_INFO					0
+# define E4C_FILE_INFO                  (const char *)NULL
+# define E4C_LINE_INFO                  0
 # endif
 
 /*
  * These undocumented macros hide implementation details from documentation.
  */
 # define E4C_LOOP(stage) \
-	E4C_SETJMP(  *( e4c_first(stage, E4C_FILE_INFO, E4C_LINE_INFO) )  ); \
-	while( e4c_next() )
+    E4C_SETJMP(  *( e4c_first(stage, E4C_FILE_INFO, E4C_LINE_INFO) )  ); \
+    while( e4c_next() )
 
 # define E4C_TRY \
-	E4C_LOOP(e4c_acquiring) \
-	if( e4c_hook(e4c_trying, INVALID_EXCEPTION) \
-		&& e4c_next() )
-	/* simple optimization: e4c_next() will avoid e4c_disposing stage */
+    E4C_LOOP(e4c_acquiring) \
+    if( e4c_hook(e4c_trying, INVALID_EXCEPTION) \
+        && e4c_next() )
+    /* simple optimization: e4c_next() will avoid e4c_disposing stage */
 
 # define E4C_CATCH(_exception_) \
-	else if( \
-		e4c_hook(e4c_catching, _exception_) \
-	)
+    else if( \
+        e4c_hook(e4c_catching, _exception_) \
+    )
 
 # define E4C_FINALLY \
-	else if( \
-		e4c_hook(e4c_finalizing, INVALID_EXCEPTION) \
-	)
+    else if( \
+        e4c_hook(e4c_finalizing, INVALID_EXCEPTION) \
+    )
 
 # define E4C_THROW(_exception_) \
-	e4c_throw( \
-		_exception_, E4C_FILE_INFO, E4C_LINE_INFO \
-	)
+    e4c_throw( \
+        _exception_, E4C_FILE_INFO, E4C_LINE_INFO \
+    )
 
 # define E4C_WITH(_resource_, _dispose_) \
-	E4C_LOOP(e4c_beginning) \
-	if( e4c_hook(e4c_disposing, INVALID_EXCEPTION) ){ \
-		_dispose_(_resource_, E4C_CONTEXT->currentFrame->thrown, E4C_CONTEXT); \
-	}else if( e4c_hook(e4c_acquiring, INVALID_EXCEPTION) ){
+    E4C_LOOP(e4c_beginning) \
+    if( e4c_hook(e4c_disposing, INVALID_EXCEPTION) ){ \
+        _dispose_(_resource_, E4C_CONTEXT->currentFrame->thrown, E4C_CONTEXT); \
+    }else if( e4c_hook(e4c_acquiring, INVALID_EXCEPTION) ){
 
 # define E4C_USE \
-	}else if( \
-		e4c_hook(e4c_trying, INVALID_EXCEPTION) \
-	)
+    }else if( \
+        e4c_hook(e4c_trying, INVALID_EXCEPTION) \
+    )
 
 # define E4C_USING(_type_, _resource_, _args_) \
-	with(_resource_, dispose##_type_){ \
-		_resource_ = acquire##_type_ _args_; \
-	}use
+    with(_resource_, dispose##_type_){ \
+        _resource_ = acquire##_type_ _args_; \
+    }use
 
 # define E4C_RECYCLE_EXCEPTION_CONTEXT(_thrownException_) \
-	\
-	e4c_RecyclingStage	E4C_RECYCLING(stage)	= e4c_beforePayload; \
-	e4c_bool			E4C_RECYCLING(recycled)	= (E4C_CONTEXT != NULL); \
-	const Exception *	_thrownException_		= NULL; \
-	\
-	if( !E4C_RECYCLING(recycled) ){ \
+    \
+    e4c_RecyclingStage  E4C_RECYCLING(stage)    = e4c_beforePayload; \
+    e4c_bool            E4C_RECYCLING(recycled) = (E4C_CONTEXT != NULL); \
+    const Exception *   _thrownException_       = NULL; \
+    \
+    if( !E4C_RECYCLING(recycled) ){ \
         beginExceptionContext(e4c_false, NULL); \
         try{ \
-			goto E4C_RECYCLING(payload); \
-			E4C_RECYCLING(cleanup): \
+            goto E4C_RECYCLING(payload); \
+            E4C_RECYCLING(cleanup): \
             ; \
-		}catch(RuntimeException){ \
-			_thrownException_ = &EXCEPTION; \
-		}finally{ \
-			E4C_RECYCLING(stage) = e4c_recyclingDone; \
+        }catch(RuntimeException){ \
+            _thrownException_ = &EXCEPTION; \
+        }finally{ \
+            E4C_RECYCLING(stage) = e4c_recyclingDone; \
             e4c_next(); \
-			endExceptionContext(); \
-			break; \
-		} \
-	} \
-	\
-	E4C_RECYCLING(payload): \
-	for(; E4C_RECYCLING(stage) < e4c_recyclingDone; E4C_RECYCLING(stage)++) \
-		if( E4C_RECYCLING(stage) == e4c_afterPayload){ \
+            endExceptionContext(); \
+            break; \
+        } \
+    } \
+    \
+    E4C_RECYCLING(payload): \
+    for(; E4C_RECYCLING(stage) < e4c_recyclingDone; E4C_RECYCLING(stage)++) \
+        if( E4C_RECYCLING(stage) == e4c_afterPayload){ \
             if( !E4C_RECYCLING(recycled) ){ \
-            	goto E4C_RECYCLING(cleanup); \
+                goto E4C_RECYCLING(cleanup); \
             }else{ \
-            	break; \
-        	} \
-		}else
+                break; \
+            } \
+        }else
 
 /**
  * @name Exception handling keywords
@@ -473,9 +473,9 @@
  *
  */
 # define usingMemory(_buffer_, _bytes_) \
-	usingIfNotNull( \
-		Memory, _buffer_, (_bytes_), NotEnoughMemoryException \
-	)
+    usingIfNotNull( \
+        Memory, _buffer_, (_bytes_), NotEnoughMemoryException \
+    )
 
 /**
  * Binds the acquisition of file to the standard function <code>fopen</code>
@@ -522,9 +522,9 @@
  *
  */
 # define usingFile(_file_, _path_, _mode_) \
-	usingIfNotNull( \
-		File, _file_, (_path_, _mode_), FileOpenException \
-	)
+    usingIfNotNull( \
+        File, _file_, (_path_, _mode_), FileOpenException \
+    )
 
 /**
  * Introduces a block of code with automatic disposal of a resource and
@@ -561,10 +561,10 @@
  * @see using
  */
 # define usingIf(_type_, _resource_, _args_, _cond_, _exception_) \
-	with(_resource_, dispose##_type_){ \
-		_resource_ = acquire##_type_ _args_; \
-		if( !(_cond_) ) throw(_exception_); \
-	}use
+    with(_resource_, dispose##_type_){ \
+        _resource_ = acquire##_type_ _args_; \
+        if( !(_cond_) ) throw(_exception_); \
+    }use
 
 /**
  * Introduces a block of code with automatic disposal of a resource and
@@ -579,9 +579,9 @@
  * @see usingIf
  */
 # define usingIfNotNull(_type_, _resource_, _args_, _exception_) \
-	usingIf( \
-		_type_, _resource_, _args_, _resource_ != NULL, _exception_ \
-	)
+    usingIf( \
+        _type_, _resource_, _args_, _resource_ != NULL, _exception_ \
+    )
 
 /*@}*/
 
@@ -657,7 +657,7 @@
  * @see E4C_VERSION_REVISION
  * @see E4C_VERSION_STRING
  */
-# define E4C_VERSION_NUMBER		E4C_VERSION(E4C_V_NUMBER)
+# define E4C_VERSION_NUMBER     E4C_VERSION(E4C_V_NUMBER)
 
 /**
  * Provides the library major version number
@@ -670,7 +670,7 @@
  *
  * @see E4C_VERSION_NUMBER
  */
-# define E4C_VERSION_MAJOR		E4C_VERSION(E4C_V_MAJOR)
+# define E4C_VERSION_MAJOR      E4C_VERSION(E4C_V_MAJOR)
 
 /**
  * Provides the library minor version number
@@ -683,7 +683,7 @@
  *
  * @see E4C_VERSION_NUMBER
  */
-# define E4C_VERSION_MINOR		E4C_VERSION(E4C_V_MINOR)
+# define E4C_VERSION_MINOR      E4C_VERSION(E4C_V_MINOR)
 
 /**
  * Provides the library revision number
@@ -695,7 +695,7 @@
  *
  * @see E4C_VERSION_NUMBER
  */
-# define E4C_VERSION_REVISION	E4C_VERSION(E4C_V_REVISION)
+# define E4C_VERSION_REVISION   E4C_VERSION(E4C_V_REVISION)
 
 /**
  * Provides whether the library thread-safe mode is enabled
@@ -709,7 +709,7 @@
  *
  * @see E4C_VERSION_NUMBER
  */
-# define E4C_VERSION_THREADSAFE	E4C_V_THREADSAFE
+# define E4C_VERSION_THREADSAFE E4C_V_THREADSAFE
 
 /**
  * Provides the library version number as a string literal
@@ -720,7 +720,7 @@
  *
  * @see E4C_VERSION_NUMBER
  */
-# define E4C_VERSION_STRING		E4C_VERSION(E4C_V_STRING)
+# define E4C_VERSION_STRING     E4C_VERSION(E4C_V_STRING)
 
 /**
  * Reuses an existing exception context, otherwise, opens a new one and then
@@ -914,7 +914,7 @@
  * @see E4C_CONTEXT
  */
 # define recycleExceptionContext(_thrownException_) \
-	E4C_RECYCLE_EXCEPTION_CONTEXT(_thrownException_)
+    E4C_RECYCLE_EXCEPTION_CONTEXT(_thrownException_)
 
 /*@}*/
 
@@ -942,13 +942,13 @@
  * @see beginExceptionContext
  * @see endExceptionContext
  */
-# define E4C_CONTEXT			getExceptionContext()
+# define E4C_CONTEXT            getExceptionContext()
 
 /**
  * Accesses the current frame of the exception context
  * @see ExceptionFrame
  */
-# define E4C_FRAME				(E4C_CONTEXT->currentFrame)
+# define E4C_FRAME              (E4C_CONTEXT->currentFrame)
 
 /**
  * Accesses the current exception being thrown from the current exception frame
@@ -967,25 +967,25 @@
  * @see INVALID_EXCEPTION
  * @see E4C_STATUS_THROWN
  */
-# define EXCEPTION				(E4C_FRAME->exception)
+# define EXCEPTION              (E4C_FRAME->exception)
 
 /**
  * Accesses the error number of the current exception frame
  * @see ExceptionFrame
  */
-# define E4C_ERRNO				(E4C_FRAME->errorNumber)
+# define E4C_ERRNO              (E4C_FRAME->errorNumber)
 
 /**
  * Accesses the error file of the current exception frame
  * @see ExceptionFrame
  */
-# define E4C_FILE				(E4C_FRAME->file)
+# define E4C_FILE               (E4C_FRAME->file)
 
 /**
  * Accesses the error line of the current exception frame
  * @see ExceptionFrame
  */
-# define E4C_LINE				(E4C_FRAME->line)
+# define E4C_LINE               (E4C_FRAME->line)
 
 /**
  * Accesses the <code>thrown</code> flag of the current exception frame
@@ -998,7 +998,7 @@
  * @see ExceptionFrame
  * @see E4C_STATUS_UNCAUGHT
  */
-# define E4C_STATUS_THROWN		(E4C_FRAME->thrown)
+# define E4C_STATUS_THROWN      (E4C_FRAME->thrown)
 
 /**
  * Accesses the <code>uncaught</code> flag of the current exception frame
@@ -1011,27 +1011,27 @@
  * @see ExceptionFrame
  * @see E4C_STATUS_THROWN
  */
-# define E4C_STATUS_UNCAUGHT	(E4C_FRAME->uncaught)
+# define E4C_STATUS_UNCAUGHT    (E4C_FRAME->uncaught)
 
 /**
  * Checks whether the current exception frame did complete without an error.
  * @see ExceptionFrame
  */
-# define E4C_SUCCEED			(!E4C_STATUS_THROWN)
+# define E4C_SUCCEED            (!E4C_STATUS_THROWN)
 
 /**
  * Checks whether the current exception frame did fail and then did recover of
  * the error.
  * @see ExceptionFrame
  */
-# define E4C_RECOVERED			(E4C_STATUS_THROWN && !E4C_STATUS_UNCAUGHT)
+# define E4C_RECOVERED          (E4C_STATUS_THROWN && !E4C_STATUS_UNCAUGHT)
 
 /**
  * Checks whether the current exception frame did fail and did not recover of
  * the error.
  * @see ExceptionFrame
  */
-# define E4C_FAILED				(E4C_STATUS_THROWN && E4C_STATUS_UNCAUGHT)
+# define E4C_FAILED             (E4C_STATUS_THROWN && E4C_STATUS_UNCAUGHT)
 
 /*@}*/
 
@@ -1056,9 +1056,9 @@
  * @see Exception
  */
 # define DEFINE_EXCEPTION(_name_, _description_, _super_) \
-	const Exception _name_ = { \
-		name: #_name_, description: _description_, super: &_super_ \
-	}
+    const Exception _name_ = { \
+        name: #_name_, description: _description_, super: &_super_ \
+    }
 
 /**
  * Represents a mapping literal
@@ -1074,10 +1074,10 @@
  * @see defaultSignalMappings
  */
 # define SIGNAL_MAPPING(_signalNumber_, _exception_) \
-	{ \
-		signalNumber:   _signalNumber_, \
-		exception:      &_exception_, \
-	}
+    { \
+        signalNumber:   _signalNumber_, \
+        exception:      &_exception_, \
+    }
 
 /*@}*/
 
@@ -1140,14 +1140,14 @@ typedef e4c_ExceptionContext ExceptionContext;
 typedef struct e4c_Exception Exception;
 struct e4c_Exception{
 
-	/** The name of this exception */
-	const char *			name;
+    /** The name of this exception */
+    const char *            name;
 
-	/** The description of this exception */
-	const char *			description;
+    /** The description of this exception */
+    const char *            description;
 
-	/** The supertype of this exception */
-	const Exception *		super;
+    /** The supertype of this exception */
+    const Exception *       super;
 };
 
 /*
@@ -1170,20 +1170,20 @@ struct e4c_Exception{
  * </p>
  */
 typedef enum{
-	/* No block has been executed yet */
-	e4c_beginning,
-	/* Acquiring a resource */
-	e4c_acquiring,
-	/* Executing the "try" or "use" block */
-	e4c_trying,
-	/* Disposing a resource */
-	e4c_disposing,
-	/* Catching (or attempting to catch) an exception */
-	e4c_catching,
-	/* Cleaning up ("finally" block) */
-	e4c_finalizing,
-	/* The group of blocks has been executed */
-	e4c_end
+    /* No block has been executed yet */
+    e4c_beginning,
+    /* Acquiring a resource */
+    e4c_acquiring,
+    /* Executing the "try" or "use" block */
+    e4c_trying,
+    /* Disposing a resource */
+    e4c_disposing,
+    /* Catching (or attempting to catch) an exception */
+    e4c_catching,
+    /* Cleaning up ("finally" block) */
+    e4c_finalizing,
+    /* The group of blocks has been executed */
+    e4c_end
 } e4c_Stage;
 
 /*
@@ -1197,12 +1197,12 @@ typedef enum{
  * @see recycleExceptionContext
  */
 typedef enum{
-	/* The block has not been executed yet */
-	e4c_beforePayload,
-	/* The block has just been executed */
-	e4c_afterPayload,
-	/* The block is about to complete */
-	e4c_recyclingDone
+    /* The block has not been executed yet */
+    e4c_beforePayload,
+    /* The block has just been executed */
+    e4c_afterPayload,
+    /* The block is about to complete */
+    e4c_recyclingDone
 } e4c_RecyclingStage;
 
 /**
@@ -1224,10 +1224,10 @@ typedef enum{
  * @param errorNumber The value of errno at the time the exception was thrown
  */
 typedef void (*UncaughtHandler)(
-	Exception		exception,
-	const char *	file,
-	int				line,
-	int				errorNumber
+    Exception       exception,
+    const char *    file,
+    int             line,
+    int             errorNumber
 );
 
 
@@ -1326,11 +1326,11 @@ typedef void (*UncaughtHandler)(
 typedef struct e4c_SignalMapping SignalMapping;
 struct e4c_SignalMapping{
 
-	/** The signal to be converted */
-	int						signalNumber;
+    /** The signal to be converted */
+    int                     signalNumber;
 
-	/** The exception representing the signal */
-	const Exception *		exception;
+    /** The exception representing the signal */
+    const Exception *       exception;
 };
 
 /**
@@ -1352,32 +1352,32 @@ struct e4c_SignalMapping{
 typedef struct e4c_ExceptionFrame ExceptionFrame;
 struct e4c_ExceptionFrame{
 
-	/** The continuation address of the current block */
-	E4C_READ_ONLY	E4C_JMP_BUF			address;
+    /** The continuation address of the current block */
+    E4C_READ_ONLY   E4C_JMP_BUF         address;
 
-	/** The previous (upper) frame */
-	ExceptionFrame * E4C_READ_ONLY		previous;
+    /** The previous (upper) frame */
+    ExceptionFrame * E4C_READ_ONLY      previous;
 
-	/** The current stage of this frame */
-	E4C_READ_ONLY	e4c_Stage			stage;
+    /** The current stage of this frame */
+    E4C_READ_ONLY   e4c_Stage           stage;
 
-	/** A flag that is set when an exception was thrown */
-	E4C_READ_ONLY	e4c_bool			thrown;
+    /** A flag that is set when an exception was thrown */
+    E4C_READ_ONLY   e4c_bool            thrown;
 
-	/** A flag that is set when the exception was caught */
-	E4C_READ_ONLY	e4c_bool			uncaught;
+    /** A flag that is set when the exception was caught */
+    E4C_READ_ONLY   e4c_bool            uncaught;
 
-	/** The current exception being thrown */
-	E4C_READ_ONLY	Exception			exception;
+    /** The current exception being thrown */
+    E4C_READ_ONLY   Exception           exception;
 
-	/** The path of the source code file from which the exception was thrown */
-	const char *	E4C_READ_ONLY		file;
+    /** The path of the source code file from which the exception was thrown */
+    const char *    E4C_READ_ONLY       file;
 
-	/** The number of line from which the exception was thrown */
-	E4C_READ_ONLY	int					line;
+    /** The number of line from which the exception was thrown */
+    E4C_READ_ONLY   int                 line;
 
-	/** The value of errno at the time the exception was thrown */
-	E4C_READ_ONLY	int					errorNumber;
+    /** The value of errno at the time the exception was thrown */
+    E4C_READ_ONLY   int                 errorNumber;
 };
 
 /**
@@ -1392,17 +1392,17 @@ struct e4c_ExceptionFrame{
 typedef struct e4c_ExceptionContext ExceptionContext;
 struct e4c_ExceptionContext{
 
-	/** The current (inner) exception frame of this context */
-	E4C_READ_ONLY ExceptionFrame * E4C_READ_ONLY	currentFrame;
+    /** The current (inner) exception frame of this context */
+    E4C_READ_ONLY ExceptionFrame * E4C_READ_ONLY    currentFrame;
 
-	/** The array of mappings between the signals and exceptions */
-	const SignalMapping * E4C_READ_ONLY				signalMapping;
+    /** The array of mappings between the signals and exceptions */
+    const SignalMapping * E4C_READ_ONLY             signalMapping;
 
-	/** The number of elements in the array of mappings */
-	E4C_READ_ONLY	int								signalMappings;
+    /** The number of elements in the array of mappings */
+    E4C_READ_ONLY   int                             signalMappings;
 
-	/** The function to be executed in the event of an uncaught exception */
-	E4C_READ_ONLY	UncaughtHandler					uncaughtHandler;
+    /** The function to be executed in the event of an uncaught exception */
+    E4C_READ_ONLY   UncaughtHandler                 uncaughtHandler;
 };
 
 /**
@@ -1934,7 +1934,7 @@ extern const Exception ProgramSignal2Exception;
  *        in the event of an uncaught exception.
  */
 extern void beginExceptionContext(e4c_bool handleSignals,
-	UncaughtHandler uncaughtHandler);
+    UncaughtHandler uncaughtHandler);
 
 /**
  * Retrieves the current exception context of the program (or current thread)
@@ -2072,7 +2072,7 @@ extern const SignalMapping * getSignalHandlers(int * mappings);
  * @param errorNumber The value of errno at the time the exception was thrown
  */
 extern void dumpException(Exception exception,
-	const char * file, int line, int errorNumber);
+    const char * file, int line, int errorNumber);
 
 /**
  * Prints an exception's hierarchy graph
