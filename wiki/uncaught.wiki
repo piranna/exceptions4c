@@ -4,7 +4,7 @@
 
 When an exception is thrown, the exception handling framework looks for the appropriate `catch` block that can handle the exception. The system _unwinds_ the call chain of the program and executes the `finally` blocks it finds.
 
-When no `catch` block is able to handle a exception, the system eventually gets to the `main` function of the program. This situation is called an *_uncaught exception_*.
+When no `catch` block is able to handle an exception, the system eventually gets to the `main` function of the program. This situation is called an *_uncaught exception_*.
 
 = Uncaught Handler =
 
