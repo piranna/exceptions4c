@@ -24,14 +24,15 @@ DEFINE_EXCEPTION(BlueException,  "This is a blue error.",     ColorException);
 
 try{
     int color = chooseColor();
-    if(color == 0xff0000) throw(RedException);
-    if(color == 0x00ff00) throw(GreenException);
-    if(color == 0x0000ff) throw(BlueException);
+    if(color == 0xff0000) throw(RedException, "I don't like it.");
+    if(color == 0x00ff00) throw(GreenException, NULL);
+    if(color == 0x0000ff) throw(BlueException, "It's way too blue.");
     doSomething(color);
 }catch(GreenException){
     printf("You cannot use green.");
 }catch(ColorException){
-    printf("You cannot use that color: %s (%s).", EXCEPTION.name, EXCEPTION.description);
+    e4c_exception * exception = e4c_get_exception();
+    printf("You cannot use that color: %s (%s).", exception->name, exception->message);
 }
 }}}
 
