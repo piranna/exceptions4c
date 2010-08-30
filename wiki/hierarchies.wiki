@@ -2,13 +2,13 @@
 
 = Exception hierarchies =
 
-The possible exceptions in a program are organized in a _pseudo-hierarchy_ of exceptions. `RuntimeException` is the root of the exceptions _pseudo-hierarchy_. *Any* exception can be caught by a `catch(RuntimeException)` block.
+The possible exceptions in a program are organized in a _pseudo-hierarchy_ of exceptions. `RuntimeException` is the root of the exceptions _pseudo-hierarchy_. *Any* exception can be caught by a `catch(RuntimeException)` block (except `AssertionException`).
 
-When an exception is thrown, control is transferred to the nearest dynamically-enclosing `catch` code block that handles the exception. Whether a particular `catch` block handles an exception is found out by comparing the *names* of the exceptions.
+When an exception is thrown, control is transferred to the nearest dynamically-enclosing `catch` code block that handles the exception. Whether a particular `catch` block handles an exception is found out by comparing the type (and supertypes) of the actual thrown exception against the specified exception in the `catch` clause.
 
-A `catch` block is given an exception as a parameter. This parameter determines the set of exceptions that can be handled by the code block. A block handles an actual exception that was thrown if the name of the parameter is either:
- * the same as the name of that exception.
- * the same as the name of any of the _supertypes_ of that exception.
+A `catch` block is given an exception as a parameter. This parameter determines the set of exceptions that can be handled by the code block. A block handles an actual exception that was thrown if the specified parameter is either:
+ * the same type of that exception.
+ * the same type of any of the _supertypes_ of that exception.
 
 If you write a `catch` block that handles an exception with no defined _subtype_, it will only handle that very specific exception. By grouping exceptions in _hierarchies_, you can design generic `catch` blocks that deal with several exceptions:
 
