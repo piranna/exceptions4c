@@ -4,7 +4,7 @@
 
 The possible exceptions in a program are organized in a _pseudo-hierarchy_ of exceptions. `RuntimeException` is the root of the exceptions _pseudo-hierarchy_. *Any* exception can be caught by a `catch(RuntimeException)` block.
 
-When an exception is `throw`n, control is transferred to the nearest dynamically-enclosing `catch` code block that handles the exception. Whether a particular `catch` block handles an exception is found out by comparing the *names* of the exceptions.
+When an exception is thrown, control is transferred to the nearest dynamically-enclosing `catch` code block that handles the exception. Whether a particular `catch` block handles an exception is found out by comparing the *names* of the exceptions.
 
 A `catch` block is given an exception as a parameter. This parameter determines the set of exceptions that can be handled by the code block. A block handles an actual exception that was thrown if the name of the parameter is either:
  * the same as the name of that exception.
@@ -15,12 +15,14 @@ If you write a `catch` block that handles an exception with no defined _subtype_
 {{{
 
 /*
-                 name             description                 supertype
+                 name             default message             supertype
 */
 DEFINE_EXCEPTION(ColorException, "This is a colorful error.", RuntimeException);
 DEFINE_EXCEPTION(RedException,   "This is a red error.",      ColorException);
 DEFINE_EXCEPTION(GreenException, "This is a green error.",    ColorException);
 DEFINE_EXCEPTION(BlueException,  "This is a blue error.",     ColorException);
+
+...
 
 try{
     int color = chooseColor();
