@@ -2,7 +2,7 @@
 
 = Exception hierarchies =
 
-The possible exceptions in a program are organized in a _pseudo-hierarchy_ of exceptions. `RuntimeException` is the root of the exceptions _pseudo-hierarchy_. *Any* exception can be caught by a `catch(RuntimeException)` block (except `AssertionException`).
+The possible exceptions in a program are organized in a _pseudo-hierarchy_ of exceptions. `RuntimeException` is the root of the exceptions _pseudo-hierarchy_. *Any* exception can be caught by a `catch(RuntimeException)` block, *except* `AssertionException`.
 
 When an exception is thrown, control is transferred to the nearest dynamically-enclosing `catch` code block that handles the exception. Whether a particular `catch` block handles an exception is found out by comparing the type (and supertypes) of the actual thrown exception against the specified exception in the `catch` clause.
 
