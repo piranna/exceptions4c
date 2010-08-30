@@ -18,23 +18,69 @@ Because it's way more convenient to treat errors as exceptions, rather than chec
 
 = Where =
 
-Disposing resources:
+Cleaning up:
 
- [http://exceptions4c.googlecode.com/svn/trunk/etc/example1_small.png]
+{{{
+void * buffer = malloc(1024);
+
+try{
+    int bar = foo(buffer);
+}finally{
+    free(buffer);
+}
+}}}
 
 Ensuring preconditions:
 
- [http://exceptions4c.googlecode.com/svn/trunk/etc/example2_small.png]
+{{{
+int stack_pop(Stack * stack){
+
+    if(stack->elements == 0){
+        throw(EmptyStackException);
+    }
+
+    stack->elements--;
+
+    ...
+}
+}}}
 
 Recovering from errors:
 
- [http://exceptions4c.googlecode.com/svn/trunk/etc/example3_small.png]
+{{{
+int * pointer = NULL;
+
+try{
+    int oops = *pointer;
+}catch(BadPointerException){
+    printf("No problem ;-)");
+}
+
+...
+}}}
 
 = How =
 
  * Drop the `except4c.h` and `except4c.c` in your project.
  * *`#include`* `"except4c.h"`
- * Create a `e4c_using_context{...}` code block in `main`.
+ * Create a `e4c_using_context` code block in `main`.
+
+{{{
+int main(int argc, char * argv[]){
+
+    e4c_using_context(true, e4c_print_exception){
+        try{
+            ...
+            if(error) throw(MyException, "Some error happened.");
+            ...
+        }catch(NullPointerException){
+            ...
+        }finally{
+            ...
+        }
+    }
+}
+}}}
 
 ----
 
