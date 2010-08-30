@@ -2,9 +2,29 @@
 
 = Portability =
 
-This library should compile in any good old C compiler. It uses nothing but standard C functions. In order to use exceptions4c you have to drop the two files (`except4c.h` and `except4c.c`) in your project and remember to `#include` the header file from your code. 
+This library should compile in any good old C compiler. It uses nothing but standard C functions. In order to use exceptions4c you have to drop the two files (`except4c.h` and `except4c.c`) in your project and remember to `#include` the header file from your code.
 
-In case your application uses threads, `exceptions4c` relies on pthreads, the *POSIX* application programming interface for writing multithreaded applications. This _API_ is available for most operating systems and platforms.
+In case your application uses threads, `exceptions4c` relies on pthreads, the *POSIX* application programming interface for writing multithreaded applications. This _API_ is available for most operating systems and platforms. You only need to compile the library with the `E4C_THREADSAFE` _compile-time_ parameter.
+
+All of the names of the functions, defined types and macros start with the preffix `e4c_` in order to prevent namespace pollution. However, `exceptions4c` defines the next set of _keywords_ (through macros) for convenience:
+
+ * `try`
+ * `finally`
+ * `throw`
+ * `catch`
+ * `with`
+ * `use`
+ * `using`
+
+If, for some reason, you don't want the library to define these _keywords_, you can compile the library with the `E4C_NOKEYWORDS` _compile-time_ parameter and use their respective alternate versions:
+
+ * `E4C_TRY`
+ * `E4C_FINALLY`
+ * `E4C_THROW`
+ * `E4C_CATCH`
+ * `E4C_WITH`
+ * `E4C_USE`
+ * `E4C_USING`
 
 ----
 

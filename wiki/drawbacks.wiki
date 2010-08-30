@@ -2,7 +2,7 @@
 
 = Drawbacks =
 
- * None of the blocks can be _broken_. You cannot use neither `return`, `goto`, `break` or `continue` to jump out of any `try`, `catch`, `finally`, `with` or `use` blocks. You can `throw` exceptions, though.
+ * None of the blocks can be _broken_. You cannot use neither `return`, `goto`, `break` or `continue` to jump out of any `try`, `catch`, `finally`, `with` or `use` blocks. You can `throw` exceptions, though. The same apply to blocks introduced by `e4c_using_context` or `e4c_reusing_context`.
  * Exceptions are _unchecked_, so you should wrap your application's main loop with a _catch-all_ block if you don't want your application exiting when an exception pops out `main`.
 
 ----

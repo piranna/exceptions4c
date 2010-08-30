@@ -15,7 +15,7 @@ This library provides you a simple set of keywords (_macros_, actually):
  * *`finally`*
  * *`throw`*
 
-When some part of the program finds an error that can't handle, it must `throw` an exception and then the flow of the program jumps to a block of code that is able to handle the error. 
+When some part of the program finds an error that can't handle, it must `throw` an exception and then the flow of the program jumps to a block of code that is able to handle the error.
 
 In order to handle the error, the part of the code that threw the exception must have been called by a block of code marked as `try` next to a `catch` block which is able to handle the exception, or any supertype of the exception.
 
@@ -25,9 +25,11 @@ If no surrounding block of code is able to handle that kind of exception, the pr
 
 = Features =
 
+You can `throw` and `catch` exceptions imported from any other code, and you can create your own exceptions too. Moreover, exceptions can be organized into _pseudo-hierarchies_, so you can catch many specialized exceptions by catching a generic one.
+
 A really useful feature is that `finally` blocks are *always* executed, no matter whether exceptions were thrown or not, so you can rely on them to safely dispose resources, deallocate memory and stuff like that.
 
-You can `throw` and `catch` exceptions imported from any other code, and you can create your own exceptions too. Moreover, exceptions can be organized into _pseudo-hierarchies_, so you can catch many specialized exceptions by catching a generic one.
+There is also a _built-in_ mechanism to express the *Dispose Pattern* in your program, so the resources can be implicitly acquired, used and then disposed, saving a lot of boilerplate code.
 
 In addition, signals such as `SIGHUP`, `SIGFPE` and `SIGSEGV` can be handled in an _exceptional_ way. These signals are sent to the process when something really bad happens, such as: division by zero, segmentation fault, etc.
 

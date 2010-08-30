@@ -34,7 +34,7 @@ Recovering from errors:
 
  * Drop the `except4c.h` and `except4c.c` in your project.
  * *`#include`* `"except4c.h"`
- * Call `beginExceptionContext` and `endExceptionContext`
+ * Create a `e4c_using_context{...}` code block in `main`.
 
 ----
 
