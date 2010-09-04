@@ -47,6 +47,7 @@ So we need to start by defining the exception types our stack component will use
 E4C_DEFINE_EXCEPTION(StackException, "Last stack operation failed.", RuntimeException);
 E4C_DEFINE_EXCEPTION(StackOverflowException, "The stack is full.", StackException);
 E4C_DEFINE_EXCEPTION(StackUnderflowException, "The stack is empty.", StackException);
+...
 }}}
 
 = Declaring our exceptions =
