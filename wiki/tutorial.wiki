@@ -96,8 +96,8 @@ It is a good practice to document which exceptions a function can throw (and und
  * @param stack The stack to push to
  * @param item The item to be pushed
  *
- * @throws NullPointerException if stack is NULL.
- * @throws StackOverflowException if stack is full.
+ * @throws NullPointerException if stack is NULL
+ * @throws StackOverflowException if stack is full
  */
 extern void stack_push(int_stack * stack, int item);
 
@@ -108,8 +108,8 @@ extern void stack_push(int_stack * stack, int item);
  * @param stack The stack to pop from
  * @return the topmost item
  *
- * @throws NullPointerException if stack is NULL.
- * @throws StackUnderflowException if stack is empty.
+ * @throws NullPointerException if stack is NULL
+ * @throws StackUnderflowException if stack is empty
  */
 extern int stack_pop(int_stack * stack);
 }}}
