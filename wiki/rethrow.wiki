@@ -1,4 +1,5 @@
 #summary Rethrowing exceptions
+#labels Keyword
 
 = `rethrow` keyword =
 
