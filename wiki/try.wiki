@@ -1,0 +1,16 @@
+#summary Trying blocks of code
+
+= `try` keyword =
+
+== Trying blocks of code ==
+
+`try` introduces a block of code aware of exceptions. 
+
+== See also ==
+
+ * *[catch]*
+ * *[finally]*
+
+----
+
+[http://exceptions4c.googlecode.com/svn/trunk/etc/exceptions4c_128.png]
