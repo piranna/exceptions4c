@@ -44,8 +44,8 @@ with(image, e4c_image_dispose){
 
 See also
  * *[retry]*
- * *`with`*
- * *`use`*
+ * *[`with`]*
+ * *`[use]`*
 
 ----
 
