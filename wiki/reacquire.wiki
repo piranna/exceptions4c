@@ -1,11 +1,9 @@
-#summary Reacquiring resources
+#summary Repeats the previous E4C_WITH block entirely
 #labels Keyword
 
 = `reacquire` keyword =
 
 == Reacquiring resources ==
-
-`reacquire` repeats the previous `with` block entirely.
 
 This macro discards any thrown exception (if any) and repeats the previous `with` block, up to a specified maximum number of attempts. If the acquisition completes, then the `use` block will be executed. 
 
