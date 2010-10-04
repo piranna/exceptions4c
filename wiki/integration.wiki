@@ -1,4 +1,4 @@
-#summary Integrating exceptions4c into external libraries.
+#summary Integrating exceptions4c into external libraries
 
 = Integration =
 
