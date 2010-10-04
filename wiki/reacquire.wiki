@@ -1,5 +1,9 @@
 #summary Reacquiring resources
 
+= `reacquire` keyword =
+
+== Reacquiring resources ==
+
 `reacquire` repeats the previous `with` block entirely.
 
 This macro discards any thrown exception (if any) and repeats the previous `with` block, up to a specified maximum number of attempts. If the acquisition completes, then the `use` block will be executed. 
@@ -42,10 +46,10 @@ with(image, e4c_image_dispose){
 }
 }}}
 
-See also
+= See also =
  * *[retry]*
- * *[`with`]*
- * *`[use]`*
+ * *[with]*
+ * *[use]*
 
 ----
 
