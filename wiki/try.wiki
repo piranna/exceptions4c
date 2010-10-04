@@ -1,4 +1,5 @@
 #summary Trying blocks of code
+#labels Keyword
 
 = `try` keyword =
 
