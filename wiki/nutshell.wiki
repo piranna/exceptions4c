@@ -61,8 +61,8 @@ try{
 
 = How =
 
- * Drop the `except4c.h` and `except4c.c` in your project.
- * *`#include`* `"except4c.h"`
+ * Drop the `e4c.h` and `e4c.c` in your project.
+ * *`#include`* `"e4c.h"`
  * Create a `e4c_using_context` code block in `main`.
 
 {{{

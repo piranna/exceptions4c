@@ -121,7 +121,7 @@ Now our stack component uses the exception handling framework, so we need to cal
 
 {{{
 #include <stdio.h>
-#include "except4c.h"
+#include "e4c.h"
 #include "stack.h"
 
 int main(int argc, char * argv[]){

@@ -35,7 +35,7 @@ In addition, signals such as `SIGHUP`, `SIGFPE` and `SIGSEGV` can be handled in 
 
 = Usage =
 
-You might want to play around with *`exceptions4c`* before actually using it in your projects, but you will realize very soon it's really easy to work with. In order to use *`exceptions4c`*, you just need to drop the two files (`except4c.h` and `except4c.c`) in your project and remember to include the header file from your code.
+You might want to play around with *`exceptions4c`* before actually using it in your projects, but you will realize very soon it's really easy to work with. In order to use *`exceptions4c`*, you just need to drop the two files (`e4c.h` and `e4c.c`) in your project and remember to include the header file from your code.
 
 ----
 
