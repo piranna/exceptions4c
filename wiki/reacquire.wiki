@@ -1,4 +1,5 @@
 #summary Reacquiring resources
+#labels Keyword
 
 = `reacquire` keyword =
 
