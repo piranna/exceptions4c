@@ -1,4 +1,4 @@
-#summary Repeats the previous `try` or `use` block entirely
+#summary Repeats the previous E4C_TRY (or E4C_USE) block entirely
 #labels Keyword
 
 = `retry` keyword =
