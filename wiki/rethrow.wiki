@@ -1,15 +1,13 @@
-#summary Rethrowing exceptions
+#summary Throws again the currently thrown exception, with a new message
 #labels Keyword
 
 = `rethrow` keyword =
 
 == Rethrowing exceptions ==
 
-`rethrow` throws again the currently thrown exception, with a new message.
-
 This macro creates a new instance of the thrown exception, with a more specific message. 
 
-`rethrow` is intended to be used in a `catch` block and the purpose is to refine the message of the currently caught exception. The previous exception (and its message) will be stored as the _cause_ of the newly thrown exception. 
+`rethrow` is intended to be used in a [catch] block and the purpose is to refine the message of the currently caught exception. The previous exception (and its message) will be stored as the _cause_ of the newly thrown exception. 
 
 {{{
 try{
@@ -19,7 +17,7 @@ try{
 }
 }}}
 
-The semantics of this macro are the same as for the throw macro. 
+The semantics of this macro are the same as for the [throw] macro. 
 
 == See also ==
 
