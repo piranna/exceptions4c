@@ -1,5 +1,9 @@
 #summary Retrying blocks
 
+= `retry` keyword =
+
+== Retrying blocks ==
+
 `retry` repeats the previous `try` or `use` block entirely. 
 
 This macro discards any thrown exception (if any) and repeats the previous `try` (or `use`) block, up to a specified maximum number of attempts. 
@@ -54,6 +58,12 @@ try{
     }
 }
 }}}
+
+
+== See also ==
+
+ * *[reacquire]*
+ * *`try`*
 
 
 ----
