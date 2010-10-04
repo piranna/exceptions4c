@@ -1,15 +1,13 @@
-#summary Retrying blocks
+#summary Repeats the previous `try` or `use` block entirely
 #labels Keyword
 
 = `retry` keyword =
 
 == Retrying blocks ==
 
-`retry` repeats the previous `try` or `use` block entirely. 
+This macro discards any thrown exception (if any) and repeats the previous [try] (or [use]) block, up to a specified maximum number of attempts. 
 
-This macro discards any thrown exception (if any) and repeats the previous `try` (or `use`) block, up to a specified maximum number of attempts. 
-
-This macro is intended to be used in `catch` or `finally` blocks as a quick way to fix an error condition and try again. 
+This macro is intended to be used in [catch] or [finally] blocks as a quick way to fix an error condition and try again.
 
 {{{
 const char * file_path = config_get_user_defined_file_path();
@@ -26,7 +24,7 @@ If the specified maximum number of attempts is zero, then the block can eventual
 
 This macro won't return control unless the block has already been attempted, at least, the specified maximum number of times. 
 
-At a `catch` block, the current exception is considered caught, whether the `retry` takes place or not. If you want the exception to be propagated when the maximum number of attempts has been reached, then you must throw it again. 
+At a [catch] block, the current exception is considered caught, whether the `retry` takes place or not. If you want the exception to be propagated when the maximum number of attempts has been reached, then you must (re)throw it again. 
 
 {{{
 int dividend = 100;
@@ -42,7 +40,7 @@ try{
 }
 }}}
 
-At a `finally` block, the current exception (if any) will be propagated if the `retry` does not take place, so you don't need to throw it again. 
+At a [finally] block, the current exception (if any) will be propagated if the `retry` does not take place, so you don't need to (re)throw it again. 
 
 {{{
 int dividend = 100;
