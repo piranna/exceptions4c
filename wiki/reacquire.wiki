@@ -1,4 +1,4 @@
-#summary Reacquiring resources.
+#summary Reacquiring resources
 
 `reacquire` repeats the previous `with` block entirely.
 
