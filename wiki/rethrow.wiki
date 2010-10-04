@@ -22,8 +22,8 @@ The semantics of this macro are the same as for the throw macro.
 
 == See also ==
 
- * *`throw`*
- * *`rethrowf`*
+ * *[throw]*
+ * *[rethrowf]*
 
 
 ----
