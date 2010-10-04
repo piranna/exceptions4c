@@ -36,6 +36,10 @@ Some other different implementations of exception handling systems in C are:
  By Matt Messier and John Viega
   http://zork.org/xxl/
 
+ * *libex* _Exception handling and RAII for C_
+ By Sandro Magi
+  http://code.google.com/p/libex/
+
 =Credits=
 
 I would also like to thank *José Antonio Gimeno* for his continued support and advice, and *Miguel Frutos* for his suggestions on the Dispose Pattern.
