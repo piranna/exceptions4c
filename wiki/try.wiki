@@ -1,11 +1,13 @@
-#summary Trying blocks of code
+#summary Introduces a block of code aware of exceptions
 #labels Keyword
+
+<wiki:comment>
 
 = `try` keyword =
 
 == Trying blocks of code ==
 
-`try` introduces a block of code aware of exceptions. 
+</wiki:comment>
 
 == See also ==
 
