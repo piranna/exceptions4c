@@ -1,5 +1,9 @@
 #summary Rethrowing exceptions
 
+= `rethrow` keyword =
+
+== Rethrowing exceptions ==
+
 `rethrow` throws again the currently thrown exception, with a new message.
 
 This macro creates a new instance of the thrown exception, with a more specific message. 
@@ -15,6 +19,11 @@ try{
 }}}
 
 The semantics of this macro are the same as for the throw macro. 
+
+== See also ==
+
+ * *`throw`*
+ * *`rethrowf`*
 
 
 ----
