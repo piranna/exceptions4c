@@ -1,0 +1,52 @@
+#summary Reacquiring resources.
+
+`reacquire` repeats the previous `with` block entirely.
+
+This macro discards any thrown exception (if any) and repeats the previous `with` block, up to a specified maximum number of attempts. If the acquisition completes, then the `use` block will be executed. 
+
+This macro is intended to be used in `catch` or `finally` blocks, next to a `with... use` or `using` block when the resource acquisition failed, as a quick way to fix an error condition and try to acquire the resource again. 
+
+{{{
+image_type * image;
+const char * image_path = image_get_user_avatar();
+with(image, e4c_image_dispose){
+    image = e4c_image_acquire(image_path);
+}use{
+    image_show(image);
+}catch(ImageNotFoundException){
+    image_path = image_get_default_avatar();
+    reacquire(1);
+}
+}}}
+
+If the specified maximum number of attempts is zero, then the `with` block can eventually be attempted an unlimited number of times. Care must be taken in order not to create an _infinite_ loop. 
+
+This macro won't return control unless the `with` block has already been attempted, at least, the specified maximum number of times. 
+
+Once the resource has been acquired, the `use` block can also be repeated alone through the `retry` macro. 
+
+{{{
+image_type * image;
+const char * image_path = image_get_user_avatar();
+display_type * display = display_get_user_screen();
+with(image, e4c_image_dispose){
+    image = e4c_image_acquire(image_path);
+}use{
+    image_show(image, display);
+}catch(ImageNotFoundException){
+    image_path = image_get_default_avatar();
+    reacquire(1);
+}catch(DisplayException){
+    display = display_get_default_screen();
+    retry(1);
+}
+}}}
+
+See also
+ * *[retry]*
+ * *`with`*
+ * *`use`*
+
+----
+
+[http://exceptions4c.googlecode.com/svn/trunk/etc/exceptions4c_128.png]
