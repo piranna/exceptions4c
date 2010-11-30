@@ -9,7 +9,7 @@ This little library has been inspired by these previous works:
   http://ldeniau.home.cern.ch/ldeniau/html/exception/exception.html
 
  * *Implementing Exceptions in C Programming language*
- By Adomas Paltanavicius
+ By Adomas Paltanavičius
   http://adomas.org/excc/
 
 =Other Implementations=
