@@ -36,6 +36,26 @@ Some different implementations of exception handling systems in C are:
  By Sandro Magi
   http://code.google.com/p/libex/
 
+ * *cexcept* _try/catch/throw exception-handling interface for C_
+ By Adam M. Costello and Cosmin Truta
+  http://www.nicemice.net/cexcept/
+
+ * *A Manual of C Style* _Exception Handling_
+ By Douglas W. Jones
+  http://www.cs.uiowa.edu/~jones/syssoft/style.html#except
+
+ * *Ex package* _Exception handling package_
+ By Douglas Gwyn
+  http://cexcept.sourceforge.net/ex.txt.gz
+
+ * *LIBXC* _A C-library which wraps LIBC and implements exceptions_
+ By Andrew Snowden
+  http://web.archive.org/web/20051217142403/http://www.math.umd.edu/~asnowden/libxc/
+
+ * *GEF* _General Exception-Handling Facility_
+ By Bruce W. Bigby
+  http://web.archive.org/web/20071210184301/http://home.rochester.rr.com/bigbyofrocny/GEF/
+
 ----
 
 [http://exceptions4c.googlecode.com/svn/trunk/etc/exceptions4c_128.png]
