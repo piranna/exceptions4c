@@ -1,4 +1,12 @@
-#summary Credits and other implementations
+#summary Credits and previous works
+
+=Credits=
+
+I would like to thank *José Antonio Gimeno* for his continued support and advice, and *Miguel Frutos* for his suggestions on the Dispose Pattern.
+
+Also, thanks to *dreamlax* for testing the library on several implementations.
+
+The design of the "sheep logo" <img src='http://exceptions4c.googlecode.com/svn/trunk/etc/sheep_016.png' width='16' height='16' alt='exceptions4c' /> was based on an original idea of *Iris Zaldívar*.
 
 =Previous Works=
 
@@ -12,41 +20,7 @@ This little library has been inspired by these previous works:
  By Adomas Paltanavičius
   http://adomas.org/excc/
 
-=Other Implementations=
-
-Some other different implementations of exception handling systems in C are:
-
- * *Exceptions in C*
- By Andrew Snowden
-  http://www-users.math.umd.edu/~asnowden/c-except.html
-
- * *Handling exceptions in C code*
- SWIG (Simplified Wrapper and Interface Generator)
-  http://www.swig.org/Doc1.1/HTML/Exceptions.html#n2
-
- * *Exception Handling in C without C++*
- By Tom Schotland and Peter Petersen
-  http://www.on-time.com/ddj0011.htm
-
- * *Trycatch library*
- By Michael Stickel and Dirk Jagdmann
-  http://llg.cubic.org/trycatch/
-
- * *XXL*
- By Matt Messier and John Viega
-  http://zork.org/xxl/
-
- * *libex* _Exception handling and RAII for C_
- By Sandro Magi
-  http://code.google.com/p/libex/
-
-=Credits=
-
-I would also like to thank *José Antonio Gimeno* for his continued support and advice, and *Miguel Frutos* for his suggestions on the Dispose Pattern.
-
-Thanks to *dreamlax* for testing the library on several implementations.
-
-The design of the "sheep logo" <img src='http://exceptions4c.googlecode.com/svn/trunk/etc/sheep_016.png' width='16' height='16' alt='exceptions4c' /> was based on an original idea of *Iris Zaldívar*.
+There are also [alternatives other alternative libraries].
 
 ----
 
