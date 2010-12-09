@@ -1,0 +1,41 @@
+#summary Other alternative implementations
+
+=Other Implementations=
+
+Some different implementations of exception handling systems in C are:
+
+ * *Exceptions in C*
+ By Laurent Deniau
+  http://ldeniau.home.cern.ch/ldeniau/html/exception/exception.html
+
+ * *Implementing Exceptions in C Programming language*
+ By Adomas Paltanavičius
+  http://adomas.org/excc/
+
+ * *Exceptions in C*
+ By Andrew Snowden
+  http://www-users.math.umd.edu/~asnowden/c-except.html
+
+ * *Handling exceptions in C code*
+ SWIG (Simplified Wrapper and Interface Generator)
+  http://www.swig.org/Doc1.1/HTML/Exceptions.html#n2
+
+ * *Exception Handling in C without C++*
+ By Tom Schotland and Peter Petersen
+  http://www.on-time.com/ddj0011.htm
+
+ * *Trycatch library*
+ By Michael Stickel and Dirk Jagdmann
+  http://llg.cubic.org/trycatch/
+
+ * *XXL*
+ By Matt Messier and John Viega
+  http://zork.org/xxl/
+
+ * *libex* _Exception handling and RAII for C_
+ By Sandro Magi
+  http://code.google.com/p/libex/
+
+----
+
+[http://exceptions4c.googlecode.com/svn/trunk/etc/exceptions4c_128.png]
