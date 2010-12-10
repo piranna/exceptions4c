@@ -36,6 +36,10 @@ Some different implementations of exception handling systems in C are:
  By Sandro Magi
   http://code.google.com/p/libex/
 
+ * *libexcept* _An exceptions framework for the C programming language_
+ By Simon Howard
+  http://sourceforge.net/projects/libexcept/
+
  * *cexcept* _try/catch/throw exception-handling interface for C_
  By Adam M. Costello and Cosmin Truta
   http://www.nicemice.net/cexcept/
