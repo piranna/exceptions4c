@@ -61,7 +61,7 @@ Some different implementations of exception handling systems in C are:
   http://web.archive.org/web/20071210184301/http://home.rochester.rr.com/bigbyofrocny/GEF/
 
  * *cexception* _Simple exception handling in C_
- By Mark VanderVoord
+ By Mark !VanderVoord
   http://sourceforge.net/apps/trac/cexception/
 
  * *EXC* _An Exception Handling Library for ANSI-C_
