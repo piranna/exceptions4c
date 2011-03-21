@@ -68,6 +68,11 @@ Some different implementations of exception handling systems in C are:
  By Taj Khattra
   ftp://sunsite.unc.edu/pub/Linux/devel/lang/c/exc-1.0.tar.gz
 
+
+ * *libexception* _Exception handling library for C_
+ By Benedikt Böhm
+  https://github.com/hollow/libexception
+
 ----
 
 [http://exceptions4c.googlecode.com/svn/trunk/etc/exceptions4c_128.png]
