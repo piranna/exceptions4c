@@ -1,19 +1,19 @@
-#summary Other alternative implementations
+#summary Otras implementaciones alternativas
 
-=Other Implementations=
+=Otras implementaciones=
 
-Some different implementations of exception handling systems in C are:
+Algunas de las diferentes implementaciones de sistemas de manejo de excepciones en C son:
 
  * *Exceptions in C*
- By Laurent Deniau
+ Por Laurent Deniau
   http://ldeniau.home.cern.ch/ldeniau/html/exception/exception.html
 
  * *Implementing Exceptions in C Programming language*
- By Adomas Paltanavičius
+ Por Adomas Paltanavičius
   http://adomas.org/excc/
 
  * *Exceptions in C*
- By Andrew Snowden
+ Por Andrew Snowden
   http://www-users.math.umd.edu/~asnowden/c-except.html
 
  * *Handling exceptions in C code*
@@ -21,55 +21,55 @@ Some different implementations of exception handling systems in C are:
   http://www.swig.org/Doc1.1/HTML/Exceptions.html#n2
 
  * *Exception Handling in C without C++*
- By Tom Schotland and Peter Petersen
+ Por Tom Schotland and Peter Petersen
   http://www.on-time.com/ddj0011.htm
 
  * *Trycatch library*
- By Michael Stickel and Dirk Jagdmann
+ Por Michael Stickel and Dirk Jagdmann
   http://llg.cubic.org/trycatch/
 
  * *XXL*
- By Matt Messier and John Viega
+ Por Matt Messier and John Viega
   http://zork.org/xxl/
 
  * *libex* _Exception handling and RAII for C_
- By Sandro Magi
+ Por Sandro Magi
   http://code.google.com/p/libex/
 
  * *libexcept* _An exceptions framework for the C programming language_
- By Simon Howard
+ Por Simon Howard
   http://sourceforge.net/projects/libexcept/
 
  * *cexcept* _try/catch/throw exception-handling interface for C_
- By Adam M. Costello and Cosmin Truta
+ Por Adam M. Costello and Cosmin Truta
   http://www.nicemice.net/cexcept/
 
  * *A Manual of C Style* _Exception Handling_
- By Douglas W. Jones
+ Por Douglas W. Jones
   http://www.cs.uiowa.edu/~jones/syssoft/style.html#except
 
  * *Ex package* _Exception handling package_
- By Douglas A. Gwyn
+ Por Douglas A. Gwyn
   http://cexcept.sourceforge.net/ex.txt.gz
 
  * *LIBXC* _A C-library which wraps LIBC and implements exceptions_
- By Andrew Snowden
+ Por Andrew Snowden
   http://web.archive.org/web/20051217142403/http://www.math.umd.edu/~asnowden/libxc/
 
  * *GEF* _General Exception-Handling Facility_
- By Bruce W. Bigby
+ Por Bruce W. Bigby
   http://web.archive.org/web/20071210184301/http://home.rochester.rr.com/bigbyofrocny/GEF/
 
  * *cexception* _Simple exception handling in C_
- By Mark !VanderVoord
+ Por Mark !VanderVoord
   http://sourceforge.net/apps/trac/cexception/
 
  * *EXC* _An Exception Handling Library for ANSI-C_
- By Taj Khattra
+ Por Taj Khattra
   ftp://sunsite.unc.edu/pub/Linux/devel/lang/c/exc-1.0.tar.gz
 
  * *libexception* _Exception handling library for C_
- By Benedikt Böhm
+ Por Benedikt Böhm
   https://github.com/hollow/libexception
 
 ----
