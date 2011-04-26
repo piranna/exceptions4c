@@ -17,7 +17,7 @@ Esta pequeña biblioteca se ha inspirado en estos trabajos previos:
   http://ldeniau.home.cern.ch/ldeniau/html/exception/exception.html
 
  * *Implementing Exceptions in C Programming language*
- Por Adomas Paltanavicius
+ Por Adomas Paltanavičius
   http://adomas.org/excc/
 
 También hay [alternatives otras bibliotecas alternativas].

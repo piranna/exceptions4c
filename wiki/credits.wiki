@@ -4,7 +4,7 @@
 
 I would like to thank *José Antonio Gimeno* for his continued support and advice, and *Miguel Frutos* for his suggestions on the Dispose Pattern.
 
-Also, thanks to *dreamlax* for testing the library on several implementations.
+Also, thanks to *dreamlax* for testing the library on several platforms.
 
 The design of the "sheep logo" <img src='http://exceptions4c.googlecode.com/svn/trunk/etc/sheep_016.png' width='16' height='16' alt='exceptions4c' /> was based on an original idea of *Iris Zaldívar*.
 
