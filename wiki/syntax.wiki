@@ -1,6 +1,6 @@
 #summary Syntax
 
-= Context =
+= A Little `Context`=
 
 The exception-aware code of the program needs to be enclosed in a *context*. A context needs to be _begun_ before using the exception handling and _ended_ before exiting the application or thread.
 
@@ -16,7 +16,7 @@ int main(int argc, char * argv[]){
 
 There is another way to begin and end an exception context through the functions `e4c_context_begin` and `e4c_context_end`, but you will need to use them _properly_ (you cannot call twice in a row any of these functions, and you need to end the context before exiting).
 
-= Exceptions =
+= Exception Types =
 
 The type of exceptions a program will use are defined within the global scope of a source code file through the macro `DEFINE_EXCEPTION` specifying: *name*, *default error message* and *supertype*:
 
