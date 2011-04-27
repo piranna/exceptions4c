@@ -42,7 +42,7 @@ DECLARE_EXCEPTION(StackUnderflowException);
 
 = `throw` =
 
-The _keyword_ `throw` creates a new instance of the specified exception with the specified mesage and raises ir to signal an exceptional situation to the system.
+The _keyword_ `throw` creates a new instance of the specified exception with the specified mesage and raises it to signal an exceptional situation to the system.
 
 If the specified message is `NULL` then the default message for that type of exceptions will be used.
 
@@ -72,7 +72,7 @@ try{
 
 = `catch` =
 
-A `catch` block must be given a kind of exceptions it is capable of handling. Inside a `catch` block, the actual exception being handled can be accessed through the function `e4c_get_exception`.
+A `catch` block must be given a type of exceptions it is capable of handling. Inside a `catch` block, the actual exception being handled can be accessed through the function `e4c_get_exception`.
 
 {{{
 try{
@@ -82,7 +82,7 @@ try{
 }
 }}}
 
-A `try` block can have as many `catch` block as desired:
+A `try` block can be followed by many `catch` blocks:
 
 {{{
 try{
@@ -97,7 +97,8 @@ try{
 
 = `finally` =
 
-A `try` block can be next to, at most, one `finally` block. In order to know whether the `try` block completed or threw an exception, you can call the function e4c_get_status`. The function `e4c_get_exception` will return the thrown exception, if any, even if it was caught by a `catch` block.
+A `try` block can be followed by, at most, one `finally` block. In order to know whether the `try` block completed or threw an exception, you can call the function `e4c_get_status`. The function `e4c_get_exception` will return the thrown exception, if any, even if it was caught by a `catch` block.
+
 {{{
 try{
     stack_push(123);
