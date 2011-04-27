@@ -18,7 +18,7 @@ There is another way to begin and end an exception context through the functions
 
 = Exception Types =
 
-The type of exceptions a program will use are defined within the global scope of a source code file through the macro `DEFINE_EXCEPTION` specifying: *name*, *default error message* and *supertype*:
+The types of exceptions a program will use are defined within the global scope of a source code file through the macro `DEFINE_EXCEPTION` specifying: *name*, *default error message* and *supertype*:
 
 {{{
 /* stack.c */
@@ -42,9 +42,9 @@ DECLARE_EXCEPTION(StackUnderflowException);
 
 = `throw` =
 
-The _keyword_ `throw` creates a new instance of the specified exception with the specified mesage and raises it to signal an exceptional situation to the system.
+The _keyword_ `throw` creates a new instance of the specified exception type, with the specified mesage and raises it to signal an exceptional situation to the system.
 
-If the specified message is `NULL` then the default message for that type of exceptions will be used.
+If the specified message is `NULL` then the default message for that type of exception will be used.
 
 {{{
 if(record == null) throw(NullPointerException, "Invalid record passed as parameter.");
@@ -62,7 +62,7 @@ Exceptions can be thrown any time, provided that there is an exception context r
 
 = `try` =
 
-The only mandatory part of a `try` block is the `try` keyword. The code block introduced by the `try` _keyword_ can use `catch` blocks in order to handle errors, and a `finally` block to cleanup after the `try` block either _succeeds_ or _fails_.
+The only mandatory part of a `try` block is the `try` _keyword_. A code block introduced by the `try` keyword can use `catch` blocks in order to handle errors, and a `finally` block to cleanup after the `try` block either _succeeds_ or _fails_.
 
 {{{
 try{
