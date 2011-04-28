@@ -76,6 +76,10 @@ Some different implementations of exception handling systems in C are:
  By David R. Hanson
   http://code.google.com/p/cii/source/browse/trunk/include/except.h
 
+ * _Exceptions in C with Longjmp and Setjmp_
+ By Francesco Nidito
+  http://www.di.unipi.it/~nids/docs/longjump_try_trow_catch.html
+
 ----
 
 [http://exceptions4c.googlecode.com/svn/trunk/etc/exceptions4c_128.png]
