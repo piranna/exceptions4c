@@ -53,7 +53,7 @@ E4C_DEFINE_EXCEPTION(StackUnderflowException, "The stack is empty.", StackExcept
 
 = Declaring our exceptions =
 
-The same way we _export_ our component functions and make them publicly available through a header file with their `extern` prototypes, we need to _export_ our exceptions too, so a caller finds out about them.
+Just as we _export_ our component functions and make them publicly available through a header file with their `extern` prototypes, we need to _export_ our exceptions too, so a caller finds out about them.
 
 {{{
 /* stack.h */
