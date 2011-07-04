@@ -5,14 +5,14 @@
 
 This library has got `1000` distinctive features:
 
-  * [http://exceptions4c.googlecode.com/svn/trunk/etc/img/icons/24x24/exception_handling.png] `000`: *[#Exception_Handling.png Exception Handling]*
-  * [http://exceptions4c.googlecode.com/svn/trunk/etc/img/icons/24x24/polymorphism.png] `001`: *[#Polymorphism.png Polymorphism]*
-  * [http://exceptions4c.googlecode.com/svn/trunk/etc/img/icons/24x24/chained_exceptions.png] `010`: *[#Chained_Exceptions.png Chained Exceptions]*
-  * [http://exceptions4c.googlecode.com/svn/trunk/etc/img/icons/24x24/dispose_pattern.png] `011`: *[#Dispose_Pattern.png Dispose Pattern]*
-  * [http://exceptions4c.googlecode.com/svn/trunk/etc/img/icons/24x24/signal_handling.png] `100`: *[#Signal_Handling.png Signal Handling]*
-  * [http://exceptions4c.googlecode.com/svn/trunk/etc/img/icons/24x24/multi-thread.png] `101`: *[#Multi-Thread.png Multi-Thread]*
-  * [http://exceptions4c.googlecode.com/svn/trunk/etc/img/icons/24x24/thoroughly_tested.png] `110`: *[#Thoroughly_Tested.png Thoroughly Tested]*
-  * [http://exceptions4c.googlecode.com/svn/trunk/etc/img/icons/24x24/fully_documented.png] `111`: *[#Fully_Documented.png Fully Documented]*
+  * [http://exceptions4c.googlecode.com/svn/trunk/etc/img/icons/24x24/exception_handling.png] `000`: *[#Exception_Handling Exception Handling]*
+  * [http://exceptions4c.googlecode.com/svn/trunk/etc/img/icons/24x24/polymorphism.png] `001`: *[#Polymorphism Polymorphism]*
+  * [http://exceptions4c.googlecode.com/svn/trunk/etc/img/icons/24x24/chained_exceptions.png] `010`: *[#Chained_Exceptions Chained Exceptions]*
+  * [http://exceptions4c.googlecode.com/svn/trunk/etc/img/icons/24x24/dispose_pattern.png] `011`: *[#Dispose_Pattern Dispose Pattern]*
+  * [http://exceptions4c.googlecode.com/svn/trunk/etc/img/icons/24x24/signal_handling.png] `100`: *[#Signal_Handling Signal Handling]*
+  * [http://exceptions4c.googlecode.com/svn/trunk/etc/img/icons/24x24/multi-thread.png] `101`: *[#Multi-Thread Multi-Thread]*
+  * [http://exceptions4c.googlecode.com/svn/trunk/etc/img/icons/24x24/thoroughly_tested.png] `110`: *[#Thoroughly_Tested Thoroughly Tested]*
+  * [http://exceptions4c.googlecode.com/svn/trunk/etc/img/icons/24x24/fully_documented.png] `111`: *[#Fully_Documented Fully Documented]*
 
 <wiki:comment>
 You may also be interested in the `1000` [reasons] to use the library.
