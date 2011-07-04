@@ -26,6 +26,7 @@ extern bool stack_is_full(int_stack * stack);
 Now let's have a look at two of those functions: `stack_push` and `stack_pop`. What happens if any of these functions fails? The typical approach would be to make them return an error code to express operation failure. But then `stack_pop` would need another argument in order to _return_ the item:
 
 {{{
+enum stack_status{stack_success, stack_error_full, stack_error_empty};
 ...
 extern enum stack_status stack_push(int_stack * stack, int item);
 extern enum stack_status stack_pop(int_stack * stack, int * item);
