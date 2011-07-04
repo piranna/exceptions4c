@@ -14,9 +14,7 @@ This library has got `1000` distinctive features:
   * [http://exceptions4c.googlecode.com/svn/trunk/etc/img/icons/24x24/thoroughly_tested.png] `110`: *[#Thoroughly_Tested Thoroughly Tested]*
   * [http://exceptions4c.googlecode.com/svn/trunk/etc/img/icons/24x24/fully_documented.png] `111`: *[#Fully_Documented Fully Documented]*
 
-<wiki:comment>
 You may also be interested in the `1000` [reasons] to use the library.
-</wiki:comment>
 
 ----
 
