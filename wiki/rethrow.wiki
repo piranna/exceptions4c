@@ -5,9 +5,9 @@
 
 == Rethrowing exceptions ==
 
-This macro creates a new instance of the thrown exception, with a more specific message. 
+This macro creates a new instance of the thrown exception, with a more specific message.
 
-`rethrow` is intended to be used in a [catch] block and the purpose is to refine the message of the currently caught exception. The previous exception (and its message) will be stored as the _cause_ of the newly thrown exception. 
+`rethrow` is intended to be used in a [catch] block and the purpose is to refine the message of the currently caught exception. The previous exception (and its message) will be stored as the _cause_ of the newly thrown exception.
 
 {{{
 try{
@@ -17,7 +17,7 @@ try{
 }
 }}}
 
-The semantics of this macro are the same as for the [throw] macro. 
+The semantics of this macro are the same as for the [throw] macro.
 
 == See also ==
 
@@ -27,4 +27,4 @@ The semantics of this macro are the same as for the [throw] macro.
 
 ----
 
-[http://exceptions4c.googlecode.com/svn/trunk/etc/exceptions4c_128.png]
+[http://exceptions4c.googlecode.com/svn/trunk/etc/img/logo/exceptions4c_128.png]

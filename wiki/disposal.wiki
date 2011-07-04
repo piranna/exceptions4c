@@ -212,4 +212,4 @@ There is already a small set of macros built into the framework which handle sta
 
 ----
 
-[http://exceptions4c.googlecode.com/svn/trunk/etc/exceptions4c_128.png]
+[http://exceptions4c.googlecode.com/svn/trunk/etc/img/logo/exceptions4c_128.png]

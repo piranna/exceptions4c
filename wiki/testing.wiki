@@ -182,4 +182,4 @@ deleted when the process is finished.
 
 ----
 
-[http://exceptions4c.googlecode.com/svn/trunk/etc/exceptions4c_128.png]
+[http://exceptions4c.googlecode.com/svn/trunk/etc/img/logo/exceptions4c_128.png]

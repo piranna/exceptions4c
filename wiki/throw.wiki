@@ -5,11 +5,11 @@
 
 == Throwing exceptions ==
 
-Creates a new instance of the specified type of exception and then throws it. The provided message is copied into the thrown exception, so it can be freely deallocated. If `NULL` is passed, then the default message for that type of exception will be used. 
+Creates a new instance of the specified type of exception and then throws it. The provided message is copied into the thrown exception, so it can be freely deallocated. If `NULL` is passed, then the default message for that type of exception will be used.
 
-When an exception is thrown, the exception handling framework looks for the appropriate [catch] block that can handle the exception. The system unwinds the call chain of the program and executes the [finally] blocks it finds. 
+When an exception is thrown, the exception handling framework looks for the appropriate [catch] block that can handle the exception. The system unwinds the call chain of the program and executes the [finally] blocks it finds.
 
-When no [catch] block is able to handle an exception, the system eventually gets to the main function of the program. This situation is called an _*uncaught exception*_. 
+When no [catch] block is able to handle an exception, the system eventually gets to the main function of the program. This situation is called an _*uncaught exception*_.
 
 
 == See also ==
@@ -22,4 +22,4 @@ When no [catch] block is able to handle an exception, the system eventually gets
 
 ----
 
-[http://exceptions4c.googlecode.com/svn/trunk/etc/exceptions4c_128.png]
+[http://exceptions4c.googlecode.com/svn/trunk/etc/img/logo/exceptions4c_128.png]

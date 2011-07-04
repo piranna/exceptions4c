@@ -67,4 +67,4 @@ In case your application uses threads, `exceptions4c` relies on pthreads, the *P
 
 ----
 
-[http://exceptions4c.googlecode.com/svn/trunk/etc/exceptions4c_128.png]
+[http://exceptions4c.googlecode.com/svn/trunk/etc/img/logo/exceptions4c_128.png]

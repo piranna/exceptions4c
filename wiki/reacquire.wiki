@@ -5,9 +5,9 @@
 
 == Reacquiring resources ==
 
-This macro discards any thrown exception (if any) and repeats the previous `with` block, up to a specified maximum number of attempts. If the acquisition completes, then the `use` block will be executed. 
+This macro discards any thrown exception (if any) and repeats the previous `with` block, up to a specified maximum number of attempts. If the acquisition completes, then the `use` block will be executed.
 
-This macro is intended to be used in `catch` or `finally` blocks, next to a `with... use` or `using` block when the resource acquisition failed, as a quick way to fix an error condition and try to acquire the resource again. 
+This macro is intended to be used in `catch` or `finally` blocks, next to a `with... use` or `using` block when the resource acquisition failed, as a quick way to fix an error condition and try to acquire the resource again.
 
 {{{
 image_type * image;
@@ -22,11 +22,11 @@ with(image, e4c_image_dispose){
 }
 }}}
 
-If the specified maximum number of attempts is zero, then the `with` block can eventually be attempted an unlimited number of times. Care must be taken in order not to create an _infinite_ loop. 
+If the specified maximum number of attempts is zero, then the `with` block can eventually be attempted an unlimited number of times. Care must be taken in order not to create an _infinite_ loop.
 
-This macro won't return control unless the `with` block has already been attempted, at least, the specified maximum number of times. 
+This macro won't return control unless the `with` block has already been attempted, at least, the specified maximum number of times.
 
-Once the resource has been acquired, the `use` block can also be repeated alone through the `retry` macro. 
+Once the resource has been acquired, the `use` block can also be repeated alone through the `retry` macro.
 
 {{{
 image_type * image;
@@ -52,4 +52,4 @@ with(image, e4c_image_dispose){
 
 ----
 
-[http://exceptions4c.googlecode.com/svn/trunk/etc/exceptions4c_128.png]
+[http://exceptions4c.googlecode.com/svn/trunk/etc/img/logo/exceptions4c_128.png]

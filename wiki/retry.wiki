@@ -5,7 +5,7 @@
 
 == Retrying blocks ==
 
-This macro discards any thrown exception (if any) and repeats the previous [try] (or [use]) block, up to a specified maximum number of attempts. 
+This macro discards any thrown exception (if any) and repeats the previous [try] (or [use]) block, up to a specified maximum number of attempts.
 
 This macro is intended to be used in [catch] or [finally] blocks as a quick way to fix an error condition and try again.
 
@@ -20,11 +20,11 @@ try{
 }
 }}}
 
-If the specified maximum number of attempts is zero, then the block can eventually be attempted an unlimited number of times. Care must be taken in order not to create an _infinite_ loop. 
+If the specified maximum number of attempts is zero, then the block can eventually be attempted an unlimited number of times. Care must be taken in order not to create an _infinite_ loop.
 
-This macro won't return control unless the block has already been attempted, at least, the specified maximum number of times. 
+This macro won't return control unless the block has already been attempted, at least, the specified maximum number of times.
 
-At a [catch] block, the current exception is considered caught, whether the `retry` takes place or not. If you want the exception to be propagated when the maximum number of attempts has been reached, then you must (re)throw it again. 
+At a [catch] block, the current exception is considered caught, whether the `retry` takes place or not. If you want the exception to be propagated when the maximum number of attempts has been reached, then you must (re)throw it again.
 
 {{{
 int dividend = 100;
@@ -40,7 +40,7 @@ try{
 }
 }}}
 
-At a [finally] block, the current exception (if any) will be propagated if the `retry` does not take place, so you don't need to (re)throw it again. 
+At a [finally] block, the current exception (if any) will be propagated if the `retry` does not take place, so you don't need to (re)throw it again.
 
 {{{
 int dividend = 100;
@@ -66,4 +66,4 @@ try{
 
 ----
 
-[http://exceptions4c.googlecode.com/svn/trunk/etc/exceptions4c_128.png]
+[http://exceptions4c.googlecode.com/svn/trunk/etc/img/logo/exceptions4c_128.png]
