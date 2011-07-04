@@ -7,7 +7,7 @@ As you can see, there are [alternatives other exception handling systems] for C.
 
   * [http://exceptions4c.googlecode.com/svn/trunk/etc/img/icons/24x24/free_software.png] `000`: *[#Free_Software Free Software]*
   * [http://exceptions4c.googlecode.com/svn/trunk/etc/img/icons/24x24/simple_api.png] `001`: *[#Simple_API Simple API]*
-  * [http://exceptions4c.googlecode.com/svn/trunk/etc/img/icons/24x24/ansi_c.png] `010`: *[#Ansi_C ANSI C]*
+  * [http://exceptions4c.googlecode.com/svn/trunk/etc/img/icons/24x24/ansi_c.png] `010`: *[#ANSI_C ANSI C]*
   * [http://exceptions4c.googlecode.com/svn/trunk/etc/img/icons/24x24/safe.png] `011`: *[#Safe Safe]*
   * [http://exceptions4c.googlecode.com/svn/trunk/etc/img/icons/24x24/portable.png] `100`: *[#Portable Portable]*
   * [http://exceptions4c.googlecode.com/svn/trunk/etc/img/icons/24x24/no_compilation_warnings.png] `101`: *[#No_Compilation_Warnings No Compilation Warnings]*
