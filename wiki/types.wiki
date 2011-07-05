@@ -68,7 +68,7 @@ Exceptions are usually defined as global objects. There is a set of predefined e
 
 == See also ==
 
- * *[e4c_exception]*
+ * *[#e4c_exception e4c_exception]*
  * *[E4C_DEFINE_EXCEPTION]*
  * *[E4C_DECLARE_EXCEPTION]*
  * *[throw]*
@@ -107,7 +107,7 @@ Exceptions provide information regarding the exceptional situation, such as:
 
 == See also ==
 
- * *[e4c_exception_type]*
+ * *[#e4c_exception_type e4c_exception_type]*
  * *[throw]*
  * *[catch]*
  * *[e4c_get_exception]*
