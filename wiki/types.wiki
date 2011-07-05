@@ -12,21 +12,121 @@ These are all the types defined in `exceptions4c`:
 
 ----
 
-= e4c_exception_type =
+= `e4c_exception_type` =
+
+Represents an exception type in the exception handling system.
+
+== Data Fields ==
+
+  * *`name`*: The name of this exception type.
+  * *`message`*: The default message of this exception type.
+  * *`super`*: The supertype of this exception type.
+
+== Detailed Description ==
+
+The types of the exceptions a program will use are defined through the macro `E4C_DEFINE_EXCEPTION`:
+
+{{{
+E4C_DEFINE_EXCEPTION(StackException, "Stack overflow", RuntimeException);
+E4C_DEFINE_EXCEPTION(StackOverflowException, "Stack overflow", StackException);
+E4C_DEFINE_EXCEPTION(StackUnderflowException, "Stack underflow", StackException);
+}}}
+
+When defining types of exceptions, they are given a name, a default message and a supertype to organize them into a _pseudo-hierarchy_.
+
+Exceptions are usually defined as global objects. There is a set of predefined exceptions built into the framework, and `RuntimeException` is the root of the exceptions _pseudo-hierarchy_:
+
+  * `RuntimeException`
+    * `NotEnoughMemoryException`
+    * `IllegalArgumentException`
+    * `FileOpenException`
+    * `IllegalArgumentException`
+    * `SignalException`
+      * `SignalAlarmException`
+      * `SignalChildException`
+      * `SignalTrapException`
+      * `ErrorSignalException`
+        * `IllegalInstructionException`
+        * `ArithmeticException`
+        * `BrokenPipeException`
+        * `BadPointerException`
+          * `NullPointerException`
+      * `ControlSignalException`
+        * `StopException`
+        * `KillException`
+        * `HangUpException`
+        * `TerminationException`
+        * `AbortException`
+        * `CPUTimeException`
+        * `UserControlSignalException`
+          * `UserQuitException`
+          * `UserInterruptionException`
+          * `UserBreakException`
+      * `ProgramSignalException`
+        * `ProgramSignal1Exception`
+        * `ProgramSignal2Exception`
+
+== See also ==
+
+ * *[e4c_exception]*
+ * *[E4C_DEFINE_EXCEPTION]*
+ * *[E4C_DECLARE_EXCEPTION]*
+ * *[throw]*
+ * *[catch]*
 
 ----
 
-= e4c_exception =
+= `e4c_exception` =
+
+Represents an instance of an exception type.
+
+== Data fields ==
+  * *`name`*: The name of this exception.
+  * *`message`*: The message of this exception.
+  * *`file`*: The path of the source code file from which the exception was thrown.
+  * *`line`*: The number of line from which the exception was thrown.
+  * *`function`*: The function from which the exception was thrown.
+  * *`error_number`*: The value of errno at the time the exception was thrown.
+  * *`type`*: The type of this exception.
+  * *`cause`*: The cause of this exception.
+
+== Detailed Description ==
+
+Exceptions are a means of breaking out of the normal flow of control of a code block in order to handle errors or other exceptional conditions. An exception should be thrown at the point where the error is detected; it may be handled by the surrounding code block or by any code block that directly or indirectly invoked the code block where the error occurred.
+
+Exceptions provide information regarding the exceptional situation, such as:
+
+  * The exception _name_ and _type_
+  * An _ad-hoc_ message (as opposed to the _default_ one)
+  * The exact point of the program where it was thrown (source code _file_, _line_ and _function name_, if available)
+  * The value of the standard error code `errno` at the time the exception was thrown
+  * The `cause` of the exception, which is the previous exception (if any), when the exception was thrown from a `catch` or `finally` block
+  * The specific, _run-time_ type of the exception, convenient when handling an abstract type of exceptions in a `catch` block 
+
+`Note`: `Any` exception can be caught by a block introduced by `catch(RuntimeException)`, except for `AssertionException`.
+
+== See also ==
+
+ * *[e4c_exception_type]*
+ * *[throw]*
+ * *[catch]*
+ * *[e4c_get_exception]*
+ * *[RuntimeException]*
+ * *[AssertionException]*
 
 ----
 
-= e4c_status =
+= `e4c_status` =
 
 Represents the completeness of a code block aware of exceptions:
+
+== Values ==
 
   * *`e4c_succeeded`* There were no exceptions.
   * *`e4c_recovered`* There was an exception, but it was caught.
   * *`e4c_failed`* There was an exception and it wasn't caught.
+
+== Detailed Description ==
 
 The symbolic values representing the status of a block help to distinguish between different possible situations inside a finally block. For example, different cleanup actions can be taken, depending on the status of the block.
 
@@ -58,12 +158,15 @@ try{
 
 ----
 
-= e4c_uncaught_handler =
+= `e4c_uncaught_handler` =
 
 Represents a function which will be executed in the event of an uncaught exception.
 
-Parameters:
+== Parameters ==
+
   * *`exception`* The uncaught exception
+
+== Detailed Description ==
 
 These functions are specified when a new exception context is begun:
 
@@ -94,14 +197,16 @@ int main(int argc, char * argv[]){
 
 ----
 
-= e4c_signal_mapping =
+= `e4c_signal_mapping` =
 
 Represents a map between a signal and an exception.
 
-Data fields:
-  * `signal_number` The signal to be converted. 
-  * `exception_type` The exception representing the signal.
- 
+== Data fields ==
+  * *`signal_number`*: The signal to be converted. 
+  * *`exception_type`*: The exception representing the signal.
+
+== Detailed Description ==
+
 A signal is an asynchronous notification sent by the operating system to a process in order to notify it of an event that occurred. Most of the signals will, by default, crash the program as soon as they are raised. `exceptions4c` can convert signals to exceptions, so they can be easily handled.
 
 For example, a _suspicious_ or _dangerous_ part of the program could be wrapped up with `try` blocks and then `catch` segmentation faults or divisions by zero. Then the program would clean up and continue normally:
