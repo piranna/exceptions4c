@@ -1,0 +1,65 @@
+#summary Introduces a block of code capable of handling a specific type of exceptions.
+#labels Keyword
+
+= `catch` keyword =
+
+`catch` blocks are optional code blocks that must be preceded by `try`, `with/use` or `using` blocks. Several catch blocks can be placed next to one another.
+
+When an exception is thrown, the system looks for a `catch` block to handle it. The first capable block (in order of appearance) will be executed and the exception is said to be _caught_.
+
+The caught exception can be accessed through the function `e4c_get_exception`.
+
+If a `catch` block handles (at _compile-time_) a generic type of exceptions, the specific type of the actual exception can be determined (at _run-time_) by comparing the `type` of the caught exception against the type of another exceptions previously defined in the program.
+
+{{{
+try{
+    ...
+}catch(RuntimeException){
+    const e4c_exception * exception = e4c_get_exception();
+    if(exception->type == SignalException.type){
+        ...
+    }else if(exception->type == NotEnoughMemoryException.type){
+        ...
+    }
+}
+}}}
+
+However, this check compares the exception against a specific type. So, if the thrown exception was a _subtype_ of the given exception type, this comparison would then yield `false`. For example, in the previous example, if the thrown exception was of type `BadPointerException`: it would be caught by the `catch` block, because an instance of a `BadPointerException` is also an instance of a `RuntimeException`, but the comparison:
+
+{{{
+(exception->type == &SignalException)
+}}}
+
+will yield `false` because the type of the thrown exception was not _strictly speaking_ `SignalException`, but `BadPointerException`.
+
+There is a more powerful way to find out if the thrown exception *is an instance of* a given type of exception _or any subtype_. The function `e4c_is_instance_of` determines that:
+
+{{{
+try{
+    ...
+}catch(RuntimeException){
+    const e4c_exception * exception = e4c_get_exception();
+    if( e4c_is_instance_of(exception, &SignalException) ){
+        ...
+    }else if(exception->type == &NotEnoughMemoryException){
+        ...
+    }
+}
+}}}
+
+In this example, the if condition would evaluate to `true`, because a `BadPointerException` is an instance of a `RuntimeException`.
+
+After the `catch` block completes, the `finally` block (if any) is executed. Then the program continues with the next line following the set of `try/catch/finally` blocks.
+
+However, if an exception is thrown in a `catch` block, then the `finally` block will be executed right away and the system will look for an outter `catch` block to handle it.
+
+Only one of all the `catch` blocks will be executed for each `try` block, even though the executed `catch` block throws another exception. The only possible way to execute more than one `catch` block would be by [retry retrying] the entire `try` block.
+
+== See also ==
+
+ * *[e4c_exception_type]*
+ * *[e4c_get_exception]*
+
+----
+
+[http://exceptions4c.googlecode.com/svn/trunk/etc/img/logo/exceptions4c_128.png]
