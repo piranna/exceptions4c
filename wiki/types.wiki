@@ -1,4 +1,5 @@
 #summary Typedefs, enums and data structures.
+#labels Featured
 
 = `exceptions4c` Types =
 
@@ -101,7 +102,7 @@ Exceptions provide information regarding the exceptional situation, such as:
   * The exact point of the program where it was thrown (source code _file_, _line_ and _function name_, if available)
   * The value of the standard error code `errno` at the time the exception was thrown
   * The `cause` of the exception, which is the previous exception (if any), when the exception was thrown from a `catch` or `finally` block
-  * The specific, _run-time_ type of the exception, convenient when handling an abstract type of exceptions in a `catch` block 
+  * The specific, _run-time_ type of the exception, convenient when handling an abstract type of exceptions in a `catch` block
 
 `Note`: `Any` exception can be caught by a block introduced by `catch(RuntimeException)`, except for `AssertionException`.
 
@@ -202,7 +203,7 @@ int main(int argc, char * argv[]){
 Represents a map between a signal and an exception.
 
 == Data fields ==
-  * *`signal_number`*: The signal to be converted. 
+  * *`signal_number`*: The signal to be converted.
   * *`exception_type`*: The exception representing the signal.
 
 == Detailed Description ==
@@ -258,10 +259,10 @@ Additionally, you can _ignore_ specific signals by using `E4C_IGNORE_SIGNAL` ins
 
 These are some of the signals you can handle:
 
-  * *`SIGFPE`* when dividing by zero. 
-  * *`SIGSEGV`* when dereferencing an invalid pointer. 
-  * *`SIGINT`* when a user interrupts the process. 
-  * *`SIGTERM`* when a process is requested to be terminated. 
+  * *`SIGFPE`* when dividing by zero.
+  * *`SIGSEGV`* when dereferencing an invalid pointer.
+  * *`SIGINT`* when a user interrupts the process.
+  * *`SIGTERM`* when a process is requested to be terminated.
 
 == See also ==
 
