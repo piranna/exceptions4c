@@ -13,7 +13,7 @@ These are all the types defined in `exceptions4c`:
 
 ----
 
-= `e4c_exception_type` =
+= [http://exceptions4c.googlecode.com/svn/trunk/etc/img/icons/40x40/type.png] `e4c_exception_type` =
 
 Represents an exception type in the exception handling system.
 
@@ -77,7 +77,7 @@ Exceptions are usually defined as global objects. There is a set of predefined e
 
 ----
 
-= `e4c_exception` =
+= [http://exceptions4c.googlecode.com/svn/trunk/etc/img/icons/40x40/type.png] `e4c_exception` =
 
 Represents an instance of an exception type.
 
@@ -117,7 +117,7 @@ Exceptions provide information regarding the exceptional situation, such as:
 
 ----
 
-= `e4c_status` =
+= [http://exceptions4c.googlecode.com/svn/trunk/etc/img/icons/40x40/type.png] `e4c_status` =
 
 Represents the completeness of a code block aware of exceptions:
 
@@ -159,7 +159,7 @@ try{
 
 ----
 
-= `e4c_uncaught_handler` =
+= [http://exceptions4c.googlecode.com/svn/trunk/etc/img/icons/40x40/type.png] `e4c_uncaught_handler` =
 
 Represents a function which will be executed in the event of an uncaught exception.
 
@@ -198,7 +198,7 @@ int main(int argc, char * argv[]){
 
 ----
 
-= `e4c_signal_mapping` =
+= [http://exceptions4c.googlecode.com/svn/trunk/etc/img/icons/40x40/type.png] `e4c_signal_mapping` =
 
 Represents a map between a signal and an exception.
 
