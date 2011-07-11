@@ -67,13 +67,13 @@ Exceptions are usually defined as global objects. There is a set of predefined e
         * `ProgramSignal1Exception`
         * `ProgramSignal2Exception`
 
-== See also ==
+== See Also ==
 
   * *[#e4c_exception e4c_exception]*
-  * *[E4C_DEFINE_EXCEPTION]*
-  * *[E4C_DECLARE_EXCEPTION]*
-  * *[throw]*
-  * *[catch]*
+  * *[macros#E4C_DEFINE_EXCEPTION E4C_DEFINE_EXCEPTION]*
+  * *[macros#E4C_DECLARE_EXCEPTION E4C_DECLARE_EXCEPTION]*
+  * *[keywords#throw throw]*
+  * *[keywords#catch catch]*
 
 ----
 
@@ -106,14 +106,14 @@ Exceptions provide information regarding the exceptional situation, such as:
 
 `Note`: `Any` exception can be caught by a block introduced by `catch(RuntimeException)`, except for `AssertionException`.
 
-== See also ==
+== See Also ==
 
   * *[#e4c_exception_type e4c_exception_type]*
-  * *[throw]*
-  * *[catch]*
+  * *[keywords#throw throw]*
+  * *[keywords#catch catch]*
   * *[functions#e4c_get_exception e4c_get_exception]*
-  * *[RuntimeException]*
-  * *[AssertionException]*
+  * *[exceptions#RuntimeException RuntimeException]*
+  * *[exceptions#AssertionException AssertionException]*
 
 ----
 
@@ -152,10 +152,10 @@ try{
 }
 }}}
 
-== See also ==
+== See Also ==
 
   * *[functions#e4c_get_status e4c_get_status]*
-  * *[finally]*
+  * *[keywords#finally finally]*
 
 ----
 
@@ -190,10 +190,10 @@ int main(int argc, char * argv[]){
 *Warning*: These functions are not allowed to try and recover the current exception context. Moreover, the program (or current thread) will terminate right after the function returns.
 
 
-== See also ==
+== See Also ==
 
   * *[functions#e4c_context_begin e4c_context_begin]*
-  * *[e4c_using_context]*
+  * *[macros#e4c_using_context e4c_using_context]*
   * *[functions#e4c_print_exception e4c_print_exception]*
 
 ----
@@ -264,14 +264,14 @@ These are some of the signals you can handle:
   * *`SIGINT`* when a user interrupts the process.
   * *`SIGTERM`* when a process is requested to be terminated.
 
-== See also ==
+== See Also ==
 
   * *[functions#e4c_context_begin e4c_context_begin]*
   * *[functions#e4c_context_set_signal_mappings e4c_context_set_signal_mappings]*
   * *[functions#e4c_context_get_signal_mappings e4c_context_get_signal_mappings]*
-  * *[E4C_SIGNAL_MAPPING]*
-  * *[E4C_IGNORE_SIGNAL]*
-  * *[e4c_default_signal_mappings]*
+  * *[macros#E4C_SIGNAL_MAPPING E4C_SIGNAL_MAPPING]*
+  * *[macros#E4C_IGNORE_SIGNAL E4C_IGNORE_SIGNAL]*
+  * *[variables#e4c_default_signal_mappings e4c_default_signal_mappings]*
 
 ----
 
