@@ -18,7 +18,7 @@ You may also be interested in the `1000` [reasons] to use the library.
 
 ----
 
-= [http://guillermo.is-a-geek.com/e4c/40x40/exception_handling.png] Exception Handling =
+= [http://exceptions4c.googlecode.com/svn/trunk/etc/img/icons/40x40/exception_handling.png] Exception Handling =
 
 ANSI C does not provide direct support for error handling. By convention, the programmer is expected to test every possible error code returned from functions. To make things worse, there is also an external variable called `errno` which needs to be checked. This _traditional_ C way of detecting errors is cumbersome and error prone. In addition, error handling code is usually intrusive and clutters everything up.
 
