@@ -1,6 +1,6 @@
+#summary Macros of exceptions4c
 #labels Featured
 
-#summary Macros of exceptions4c
 
 = `exceptions4c` Macros =
 
