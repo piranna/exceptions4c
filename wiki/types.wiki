@@ -25,15 +25,13 @@ Represents an exception type in the exception handling system.
 
 == Detailed Description ==
 
-The types of the exceptions a program will use are defined through the macro `E4C_DEFINE_EXCEPTION`:
+The types of the exceptions a program will use are *defined* in source code files through the macro [macros#E4C_DEFINE_EXCEPTION E4C_DEFINE_EXCEPTION]. In addition, they are *declared* in header files through the macro [macros#E4C_DECLARE_EXCEPTION E4C_DECLARE_EXCEPTION].
+
+When defining types of exceptions, they are given a _name_, a _default message_ and a _supertype_ to organize them into a _pseudo-hierarchy_:
 
 {{{
-E4C_DEFINE_EXCEPTION(StackException, "Stack overflow", RuntimeException);
-E4C_DEFINE_EXCEPTION(StackOverflowException, "Stack overflow", StackException);
-E4C_DEFINE_EXCEPTION(StackUnderflowException, "Stack underflow", StackException);
+E4C_DEFINE_EXCEPTION(SimpleException, "Simple exception", RuntimeException);
 }}}
-
-When defining types of exceptions, they are given a name, a default message and a supertype to organize them into a _pseudo-hierarchy_.
 
 Exceptions are usually defined as global objects. There is a set of predefined exceptions built into the framework, and `RuntimeException` is the root of the exceptions _pseudo-hierarchy_:
 
