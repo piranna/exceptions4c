@@ -1,6 +1,5 @@
+#summary Keywords of exceptions4c
 #labels Featured
-
-#summary Keywords of exceptions4c.
 
 = `exceptions4c` Keywords =
 
