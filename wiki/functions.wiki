@@ -3,7 +3,7 @@
 
 = `exceptions4c` Functions =
 
-*Exception context handling functions*:
+[http://exceptions4c.googlecode.com/svn/trunk/etc/img/icons/24x24/exception_handling.png] *Exception context handling functions*:
 
   * *[#e4c_context_is_ready e4c_context_is_ready]* checks if the current exception context is ready.
   * *[#e4c_context_begin e4c_context_begin]* begins an exception context.
@@ -13,7 +13,7 @@
   * *[#e4c_get_status e4c_get_status]* returns the completeness status of the executing code block.
   * *[#e4c_get_exception e4c_get_exception]* returns the exception that was thrown.
 
-*Other integration and convenience functions*:
+[http://exceptions4c.googlecode.com/svn/trunk/etc/img/icons/24x24/beautifully_crafted.png] *Other integration and convenience functions*:
 
   * *[#e4c_library_version e4c_library_version]* gets the library version number.
   * *[#e4c_is_instance_of e4c_is_instance_of]* returns whether an exception instance is of a given type.
