@@ -80,6 +80,10 @@ Some different implementations of exception handling systems in C are:
  By Francesco Nidito
   http://www.di.unipi.it/~nids/docs/longjump_try_trow_catch.html
 
+ * *kulp* _A toy exception handling system for C_
+ By Darren Kulp
+  https://gist.github.com/kulp
+
 ----
 
 [http://exceptions4c.googlecode.com/svn/trunk/etc/img/logo/exceptions4c_128.png]
