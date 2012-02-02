@@ -18,25 +18,25 @@ There is another way to begin and end an exception context through the functions
 
 = Exception Types =
 
-The types of exceptions a program will use are defined within the global scope of a source code file through the macro `DEFINE_EXCEPTION` specifying: *name*, *default error message* and *supertype*:
+The types of exceptions a program will use are defined within the global scope of a source code file through the macro `E4C_DEFINE_EXCEPTION` specifying: *name*, *default error message* and *supertype*:
 
 {{{
 /* stack.c */
 ...
-DEFINE_EXCEPTION(StackException, "Stack overflow", RuntimeException);
-DEFINE_EXCEPTION(StackOverflowException, "Stack overflow", StackException);
-DEFINE_EXCEPTION(StackUnderflowException, "Stack underflow", StackException);
+E4C_DEFINE_EXCEPTION(StackException, "Stack overflow", RuntimeException);
+E4C_DEFINE_EXCEPTION(StackOverflowException, "Stack overflow", StackException);
+E4C_DEFINE_EXCEPTION(StackUnderflowException, "Stack underflow", StackException);
 ...
 }}}
 
-They can be declared in a header file through the macro `DECLARE_EXCEPTION`:
+They can be declared in a header file through the macro `E4C_DECLARE_EXCEPTION`:
 
 {{{
 /* stack.h */
 ...
-DECLARE_EXCEPTION(StackException);
-DECLARE_EXCEPTION(StackOverflowException);
-DECLARE_EXCEPTION(StackUnderflowException);
+E4C_DECLARE_EXCEPTION(StackException);
+E4C_DECLARE_EXCEPTION(StackOverflowException);
+E4C_DECLARE_EXCEPTION(StackUnderflowException);
 ...
 }}}
 
