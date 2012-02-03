@@ -18,25 +18,25 @@ Hay otra forma de iniciar y terminar un contexto, a través de las funciones `e4
 
 = Tipos de excepciones =
 
-Los tipos de excepciones que un programa puede usar se definen dentro del ámbito global de un archivo de código fuente con la _macro_ `DEFINE_EXCEPTION` especificando: *nombre*, *mensaje de error por defecto* y *supertipo*:
+Los tipos de excepciones que un programa puede usar se definen dentro del ámbito global de un archivo de código fuente con la _macro_ `E4C_DEFINE_EXCEPTION` especificando: *nombre*, *mensaje de error por defecto* y *supertipo*:
 
 {{{
 /* stack.c */
 ...
-DEFINE_EXCEPTION(StackException, "Stack overflow", RuntimeException);
-DEFINE_EXCEPTION(StackOverflowException, "Stack overflow", StackException);
-DEFINE_EXCEPTION(StackUnderflowException, "Stack underflow", StackException);
+E4C_DEFINE_EXCEPTION(StackException, "Stack overflow", RuntimeException);
+E4C_DEFINE_EXCEPTION(StackOverflowException, "Stack overflow", StackException);
+E4C_DEFINE_EXCEPTION(StackUnderflowException, "Stack underflow", StackException);
 ...
 }}}
 
-Se pueden declarar en un archivo de cabecera con la _macro_ `DECLARE_EXCEPTION`:
+Se pueden declarar en un archivo de cabecera con la _macro_ `E4C_DECLARE_EXCEPTION`:
 
 {{{
 /* stack.h */
 ...
-DECLARE_EXCEPTION(StackException);
-DECLARE_EXCEPTION(StackOverflowException);
-DECLARE_EXCEPTION(StackUnderflowException);
+E4C_DECLARE_EXCEPTION(StackException);
+E4C_DECLARE_EXCEPTION(StackOverflowException);
+E4C_DECLARE_EXCEPTION(StackUnderflowException);
 ...
 }}}
 

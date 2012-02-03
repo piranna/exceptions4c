@@ -17,10 +17,10 @@ If you write a `catch` block that handles an exception with no defined _subtype_
 /*
                  name             default message             supertype
 */
-DEFINE_EXCEPTION(ColorException, "This is a colorful error.", RuntimeException);
-DEFINE_EXCEPTION(RedException,   "This is a red error.",      ColorException);
-DEFINE_EXCEPTION(GreenException, "This is a green error.",    ColorException);
-DEFINE_EXCEPTION(BlueException,  "This is a blue error.",     ColorException);
+E4C_DEFINE_EXCEPTION(ColorException, "This is a colorful error.", RuntimeException);
+E4C_DEFINE_EXCEPTION(RedException,   "This is a red error.",      ColorException);
+E4C_DEFINE_EXCEPTION(GreenException, "This is a green error.",    ColorException);
+E4C_DEFINE_EXCEPTION(BlueException,  "This is a blue error.",     ColorException);
 
 ...
 
