@@ -81,8 +81,12 @@ Algunas de las diferentes implementaciones de sistemas de manejo de excepciones 
   http://www.di.unipi.it/~nids/docs/longjump_try_trow_catch.html
 
  * *kulp* _A toy exception handling system for C_
- By Darren Kulp
+ Por Darren Kulp
   https://gist.github.com/kulp
+
+ * *errhdl* _Error Handler for C_
+ Por Jan Behrens
+  http://www.public-software-group.org/errhdl
 
 ----
 
