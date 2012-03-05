@@ -98,7 +98,6 @@ Introduces a block of code which will use a new exception context.
 == Parameters ==
 
   * *`handle_signals`*: if `true`, the signal handling system will be set up with the default mapping.
-  * *`uncaught_handler`*: if not `NULL`, this function will be called in the event of an uncaught exception.
 
 == Detailed Description ==
 
@@ -108,12 +107,12 @@ This macro is very convenient when the beginning and the ending of the current e
 
 {{{
 // block 1
-e4c_context_begin (E4C_TRUE, NULL);
+e4c_context_begin (E4C_TRUE);
 // ...
 e4c_context_end();
 
 // block 2
-e4c_using_context(E4C_TRUE, NULL){
+e4c_using_context(E4C_TRUE){
     // ...
 }
 }}}
