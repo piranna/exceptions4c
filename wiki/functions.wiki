@@ -50,7 +50,6 @@ Begins an exception context.
 == Parameters ==
 
   * *`handle_signals`*: if `true`, the signal handling system will be set up with the default mapping.
-  * *`uncaught_handler`*: if not `NULL`, this function will be called in the event of an uncaught exception.
 
 == Detailed Description ==
 
@@ -66,9 +65,7 @@ e4c_context_set_signal_mappings(e4c_default_signal_mappings);
 
 *Warning*: Note that, on some specific platforms, the behavior of the standard `signal` function might be undefined for a multithreaded program, so use the signal handling system with caution.
 
-In addition, a handling function can be specified to be called in the event of an uncaught exception. This function will be called before exiting the program or thread.
-
-There exists a convenience function to be used as the default _uncaught handler_, called [#e4c_print_exception e4c_print_exception]. This function simply prints information regarding the exception to `stderr`.
+The convenience function [functions#e4c_print_exception e4c_print_exception] will be used as the default [types#e4c_uncaught_handler uncaught handler]. It will be called in the event of an uncaught exception, before exiting the program or thread. This handler can be set through the function [functions#e4c_context_set_handlers e4c_context_set_handlers].
 
 == See Also ==
 
@@ -78,6 +75,7 @@ There exists a convenience function to be used as the default _uncaught handler_
  * *[macros#e4c_reusing_context e4c_reusing_context]*
  * *[types#e4c_uncaught_handler e4c_uncaught_handler]*
  * *[#e4c_print_exception e4c_print_exception]*
+ * *[#e4c_context_set_handlers e4c_context_set_handlers]*
 
 ----
 
