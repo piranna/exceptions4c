@@ -88,6 +88,10 @@ Some different implementations of exception handling systems in C are:
  By Jan Behrens
   http://www.public-software-group.org/errhdl
 
+ * _A Proposal for Exception Handling in C_
+ By Mikael Lyngvig
+  http://lyngvig.org/a-proposal-for-exception-handling-in-c.ashx
+
 ----
 
 [http://exceptions4c.googlecode.com/svn/trunk/etc/img/logo/exceptions4c_128.png]
