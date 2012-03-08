@@ -180,8 +180,6 @@ The program will also create two files `out.tmp` and `err.tmp` to temporarily
 store the standard output and error for each unit test. These files will be
 deleted when the process is finished.
 
-<wiki:gadget url="http://guillermo.selfip.com/exceptions4c/gadget_test_report.php" width="100%" height="600 border="1" />
-
 ----
 
 [http://exceptions4c.googlecode.com/svn/trunk/etc/img/logo/exceptions4c_128.png]
