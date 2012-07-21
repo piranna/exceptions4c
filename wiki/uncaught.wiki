@@ -12,7 +12,7 @@ When the exception context is set up, you can pass it an _uncaught handler_ whic
 
 An uncaught handler is just an ordinary function wich receives the uncaught exception. This function might take care of cleaning up before termination, but it's not allowed to try and recover the current exception context.
 
-There exist a convenience function to be used as the default uncaught handler, called `e4c_print_exception`. This function simply prints information regarding the exception to `stderr`, and then exits.
+There exists a convenience function to be used as the default uncaught handler, called `e4c_print_exception`. This function simply prints information regarding the exception to `stderr`, and then exits.
 
 = Terminating =
 
