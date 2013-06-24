@@ -100,6 +100,10 @@ Some different implementations of exception handling systems in C are:
  By Paulo H. "Taka" Torrens
   https://github.com/takanuva/ANSI-ISO-C-Exception-Handling
 
+ * **CException** _Simple exception handling in C_
+ By [http://throwtheswitch.org ThrowTheSwitch]
+  https://github.com/ThrowTheSwitch/CException
+
 ----
 
 [http://exceptions4c.googlecode.com/svn/trunk/etc/img/logo/exceptions4c_128.png]
