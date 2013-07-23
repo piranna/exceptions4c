@@ -20,7 +20,7 @@ You may also be interested in the `1000` [features] of the library.
 
 = [http://exceptions4c.googlecode.com/svn/trunk/etc/img/icons/40x40/free_software.png] Free Software =
 
-`exceptions4c` is released under the [http://www.gnu.org/licenses/gpl.html GNU GPL] in the hope that it will encourage free software development. In case you haven't heard about free software yet, you should know *it is a matter of freedom, not price*.
+`exceptions4c` is released under the [http://www.gnu.org/licenses/lgpl.html GNU LGPL] in the hope that it will encourage free software development. In case you haven't heard about free software yet, you should know *it is a matter of freedom, not price*.
 
 As with any free software, you are entitled to use this library for any purpose. You can also study how it works, and change it to make it do what you wish. You have the freedom to redistribute it, improve it, and release your improvements to the public, so that the whole community benefits.
 
