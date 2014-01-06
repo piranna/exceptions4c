@@ -9,7 +9,7 @@ A signal is an asynchronous notification sent by the operating system to a proce
 For example, you could wrap a _suspicious_ or _dangerous_ part of the code with `try` blocks and `catch` segmentation faults or divisions by zero. Then you can clean up and keep working:
 
 {{{
-e4c_using_context(true, e4c_print_exception){
+e4c_using_context(E4C_TRUE){
     int * pointer = NULL;
     try{
         int oops = *pointer;
@@ -25,7 +25,7 @@ e4c_using_context(true, e4c_print_exception){
 
 In order to perform the conversion, *exceptions4c* maps signals to exceptions.
 
-The simplest way to get this working is by passing `handle_signals=true` to the macro `e4c_using_context` or the function `e4c_context_begin`. This will set up the default mappings for the available signals in the platform.
+The simplest way to get this working is by passing `handle_signals=E4C_TRUE` to the macro `e4c_using_context` or the function `e4c_context_begin`. This will set up the default mappings for the available signals in the platform.
 
 If you need to be more specific about which signals get converted to exceptions, you can define an array of `e4c_signal_mapping` and pass it to the function `e4c_context_set_signal_mappings`.
 
@@ -37,7 +37,7 @@ e4c_signal_mapping my_signal_mappings[] = {
     E4C_NULL_SIGNAL_MAPPING
 }
 ...
-e4c_using_context(false, e4c_print_exception){
+e4c_using_context(E4C_FALSE){
     e4c_context_set_signal_mappings(my_signal_mappings);
 }
 }}}

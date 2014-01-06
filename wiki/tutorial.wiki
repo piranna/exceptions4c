@@ -127,7 +127,7 @@ Now our stack component uses the exception handling framework, so we need to cal
 
 int main(int argc, char * argv[]){
 
-    e4c_using_context(e4c_true, e4c_print_exception){
+    e4c_using_context(E4C_TRUE){
 
         /* now we can try, catch, throw, etc. */
 
@@ -142,7 +142,7 @@ int main(int argc, char * argv[]){
 Once we have begun our exception context, we are ready to go.
 
 {{{
-e4c_using_context(e4c_true, e4c_print_exception){
+e4c_using_context(E4C_TRUE){
 
     int_stack stack;
 

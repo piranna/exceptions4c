@@ -49,7 +49,7 @@ Begins an exception context.
 
 == Parameters ==
 
-  * *`handle_signals`*: if `true`, the signal handling system will be set up with the default mapping.
+  * *`handle_signals`*: if `E4C_TRUE`, the signal handling system will be set up with the default mapping.
 
 == Detailed Description ==
 

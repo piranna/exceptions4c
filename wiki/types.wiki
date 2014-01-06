@@ -178,12 +178,17 @@ void my_uncaught_handler(const e4c_exception * exception){
 ...
 
 int main(int argc, char * argv[]){
-    e4c_using_context(E4C_TRUE, my_uncaught_handler){
+
+    e4c_using_context(E4C_TRUE){
+
+        e4c_context_set_handlers(my_uncaught_handler, NULL, NULL, NULL);
         /* ... */
     }
 }
 
 }}}
+
+There exists a convenience function `#e4c_print_exception` which is used as the default *uncaught handler*, unless otherwise specified. It simply prints information regarding the exception to `stderr`.
 
 *Warning*: These functions are not allowed to try and recover the current exception context. Moreover, the program (or current thread) will terminate right after the function returns.
 
@@ -211,7 +216,7 @@ A signal is an asynchronous notification sent by the operating system to a proce
 For example, a _suspicious_ or _dangerous_ part of the program could be wrapped up with `try` blocks and then `catch` segmentation faults or divisions by zero. Then the program would clean up and continue normally:
 
 {{{
-e4c_using_context(true, e4c_print_exception){
+e4c_using_context(E4C_TRUE){
 
     int * pointer = NULL;
 
@@ -227,7 +232,7 @@ e4c_using_context(true, e4c_print_exception){
 
 In order to perform the conversion, `exceptions4c` _maps_ signals to exceptions.
 
-The simplest way to get this working is by calling the function `e4c_context_begin`. This function will set up the default mappings for the available signals in the platform, when passed `handle_signals=true`.
+The simplest way to get this working is by calling the function `e4c_context_begin`. This function will set up the default mappings for the available signals in the platform, when passed `handle_signals=E4C_TRUE`.
 
 If you need to be more specific about which signals get converted to exceptions, you can define an array of signal mappings:
 
@@ -246,7 +251,7 @@ An array of signal mappings is defined through the macros `E4C_SIGNAL_MAPPING`, 
 Once the array is properly defined, it can be passed to the function `e4c_context_set_signal_mappings`. This way, only the specified signals will be handled as exceptions, and they will be converted to the specified exceptions.
 
 {{{
-e4c_using_context(false, e4c_print_exception){
+e4c_using_context(E4C_FALSE){
 
     e4c_context_set_signal_mappings(my_signal_mappings);
     // ...

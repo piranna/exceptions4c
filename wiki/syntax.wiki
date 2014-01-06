@@ -8,7 +8,7 @@ The easiest way to do this is through the macro `e4c_using_context`. Everything 
 
 {{{
 int main(int argc, char * argv[]){
-    e4c_using_context(true, e4c_print_exception){
+    e4c_using_context(E4C_TRUE){
         ...
     }
 }
