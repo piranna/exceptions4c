@@ -5,6 +5,12 @@
 
 *exceptions4c lightweight version* is targeted at small projects and embedded systems. Use it when you just want to handle error conditions that may occur in your program through a simple yet powerful exception handling mechanism. It provides the *core functionality* of *exceptions4c* in less than 200 source lines of code.
 
+== Download ==
+
+Here you can download the latest version:
+
+  * https://exceptions4c.googlecode.com/svn/downloads/exceptions4c-lightweight.zip
+
 == Features ==
 
 Some features available in lightweight version:
