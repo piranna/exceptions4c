@@ -155,7 +155,7 @@ e4c_using_context(E4C_TRUE){
         /* the next push operation will throw an exception */
         stack_push(&stack, 400);
     }catch(StackException){
-        printf("Error: %s\n", e4c_getexception()->message);
+        printf("Error: %s\n", e4c_get_exception()->message);
     }finally{
         int last_pushed_item = stack_pop(&stack);
         printf("Last pushed item: %d\n", last_pushed_item);
